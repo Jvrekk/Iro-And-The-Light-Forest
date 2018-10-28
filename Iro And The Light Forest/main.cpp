@@ -48,6 +48,16 @@ void Display(void)
 
 	DrawCircle(200, 200, 50, 360); //Draw circle	
 	DrawCircle(100, 100, 50, 360); //check
+	
+	//TRIANGLE
+	glBegin(GL_TRIANGLES);
+
+	glColor3f(1, 1, 1);
+	glVertex2f(300.0, 210.0);
+	glVertex2f(340.0, 215.0);
+	glVertex2f(320.0, 250.0);
+
+	glEnd();
 
 	glFlush();
 
