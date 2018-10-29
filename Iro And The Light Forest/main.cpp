@@ -1,31 +1,40 @@
+#include <iostream>
 #include <SFML/Graphics.hpp>
+#include "Player.h"
 using namespace sf;
+using namespace std;
+int main() {
+	//BASE SETTINGS
+	Player Player(50);
+	
+	//WINDOW SETTINGS
+	RenderWindow window;
+	Vector2i centerWindow((VideoMode::getDesktopMode().width / 2) - 755, (VideoMode::getDesktopMode().height / 2) - 390);
 
+	window.create(VideoMode(1500, 700), "Iro And The Light Forest", Style::Titlebar | Style::Close);
+	window.setPosition(centerWindow);
 
-int main()
-{
+	window.setKeyRepeatEnabled(true);
 
-	RenderWindow window(sf::VideoMode(800, 600), "SFML works!");
+	
 
+	//Main Loop:
+	while (window.isOpen()) {
 
+		Event Event;
 
-	CircleShape shape(150);
-	shape.setPosition(100, 100);
-	shape.setFillColor(sf::Color(100, 250, 50));
+		//Event Loop:
+		while (window.pollEvent(Event)) {
+			switch (Event.type) {
 
-	while (window.isOpen())
-	{
-		Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == Event::Closed)
+			case Event::Closed:
 				window.close();
-		}
+			}
 
+			Player.movePlayer();
+		}
 		window.clear();
-		window.draw(shape);
+		Player.drawPlayer(window);
 		window.display();
 	}
-
-	return 0;
 }
