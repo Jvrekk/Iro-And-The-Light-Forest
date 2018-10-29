@@ -3,6 +3,11 @@
 #include "Player.h"
 using namespace sf;
 using namespace std;
+
+
+
+
+
 int main() {
 	//BASE SETTINGS
 	Player Player(50);
@@ -22,16 +27,23 @@ int main() {
 	while (window.isOpen()) {
 
 		Event Event;
-
+		Player.movePlayer();
+		
 		//Event Loop:
 		while (window.pollEvent(Event)) {
 			switch (Event.type) {
 
 			case Event::Closed:
 				window.close();
-			}
+			
 
-			Player.movePlayer();
+			case sf::Event::KeyReleased:
+				Player.isJumping = false;
+		}
+
+		
+			
+			
 		}
 		window.clear();
 		Player.drawPlayer(window);

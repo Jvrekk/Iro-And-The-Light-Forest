@@ -7,34 +7,46 @@ using namespace std;
 
 class Player {
 public:
+	bool isJumping;
 	Player() {
 		//Default
 	}
 
 	Player(int size) {
-		shape.setRadius(size);		
+		player.setRadius(size);
 	}
 
 	void drawPlayer(RenderWindow &window) {
-		window.draw(shape);
+		window.draw(player);
 	}
 
 	void movePlayer() {
+
 		if (Keyboard::isKeyPressed(Keyboard::W)) {
-			shape.move(0.f, -moveSpeed);
-		}
-		else if (Keyboard::isKeyPressed(Keyboard::S)) {
-			shape.move(0, moveSpeed);
+			player.move(0.f, -moveSpeed);
+			isJumping = true;
 		}
 		else if (Keyboard::isKeyPressed(Keyboard::A)) {
-			shape.move(-moveSpeed, 0);
+			player.move(-moveSpeed, 0);
 		}
 		else if (Keyboard::isKeyPressed(Keyboard::D)) {
-			shape.move(moveSpeed, 0);
+			player.move(moveSpeed, 0);
 		}
 
 	}
+
+	int getX() {
+		player.getPosition().x;
+	}
+
+	int getY() {
+		player.getPosition().y;
+	}
+
+
 private:
-	CircleShape shape;
-	float moveSpeed = 6;
+	CircleShape player;
+	float moveSpeed = 2.1;
+	
+	
 };
