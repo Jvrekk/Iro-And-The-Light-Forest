@@ -2,12 +2,12 @@
 #include <cstdlib>
 #include <iostream>
 #include <SFML\Graphics.hpp>
+#include "box.h"
 using namespace sf;
 using namespace std;
-
+class Box;
 class Player {
 public:
-	bool isJumping;
 	Player() {
 		//Default
 	}
@@ -21,12 +21,7 @@ public:
 	}
 
 	void movePlayer() {
-
-		if (Keyboard::isKeyPressed(Keyboard::W)) {
-			player.move(0.f, -moveSpeed);
-			isJumping = true;
-		}
-		else if (Keyboard::isKeyPressed(Keyboard::A)) {
+		if (Keyboard::isKeyPressed(Keyboard::A)) {
 			player.move(-moveSpeed, 0);
 		}
 		else if (Keyboard::isKeyPressed(Keyboard::D)) {
@@ -46,7 +41,7 @@ public:
 
 private:
 	CircleShape player;
-	float moveSpeed = 2.1;
+	float moveSpeed = 0.5;
 	
 	
 };

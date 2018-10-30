@@ -1,9 +1,9 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "Player.h"
+#include "player.h"
+#include "box.h"
 using namespace sf;
 using namespace std;
-
 
 
 
@@ -11,7 +11,11 @@ using namespace std;
 int main() {
 	//BASE SETTINGS
 	Player Player(50);
-	
+	Box boxArr[10],boxArr2[10];
+	for (int i = 0; i < 10; i++) {
+		boxArr[i].setter(50, i * 50, 200);
+		boxArr2[i].setter(50, 500 + i * 50, 400);
+	}
 	//WINDOW SETTINGS
 	RenderWindow window;
 	Vector2i centerWindow((VideoMode::getDesktopMode().width / 2) - 755, (VideoMode::getDesktopMode().height / 2) - 390);
@@ -29,16 +33,13 @@ int main() {
 		Event Event;
 		Player.movePlayer();
 		
+		
 		//Event Loop:
 		while (window.pollEvent(Event)) {
 			switch (Event.type) {
 
 			case Event::Closed:
 				window.close();
-			
-
-			case sf::Event::KeyReleased:
-				Player.isJumping = false;
 		}
 
 		
@@ -47,6 +48,10 @@ int main() {
 		}
 		window.clear();
 		Player.drawPlayer(window);
+		for (int i = 0; i < 10; i++) {
+			boxArr[i].drawBox(window);
+			boxArr2[i].drawBox(window);
+		}		
 		window.display();
 	}
 }
