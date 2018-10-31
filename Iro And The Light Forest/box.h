@@ -8,12 +8,12 @@ using namespace std;
 class Box {
 public:
 	Box() {
-		this->box.setFillColor(Color::Blue);
+		this->box.setFillColor(Color::White);
 	}
-	Box(int size,float x,float y) {
-		this->box.setSize(Vector2f(size,size));
+	Box(int size, float x, float y) {
+		this->box.setSize(Vector2f(size, size));
 		this->box.setPosition(x, y);
-		
+
 	}
 	void setter(int size, float x, float y) {
 		this->box.setSize(Vector2f(size, size));
