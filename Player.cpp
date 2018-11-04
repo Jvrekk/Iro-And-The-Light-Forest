@@ -9,6 +9,7 @@
 using namespace sf;
 using namespace std;
 
+	
 	Player::Player() {
 		if (!tPlayer.loadFromFile("images/player.png"))
 		{
@@ -20,6 +21,7 @@ using namespace std;
 
 	void Player::drawPlayer(RenderWindow &window) {
 		sPlayer.setTextureRect(sf::IntRect(0 * 32, 0 * 32, 32, 32));
+		window.draw(sPlayer);
 	}
 
 	void Player::movePlayer() {
@@ -38,7 +40,7 @@ using namespace std;
 
 	void Player::considerGravity() {
 		Gravity::considerGravity(sPlayer);
-	}
+	}w
 
 
 

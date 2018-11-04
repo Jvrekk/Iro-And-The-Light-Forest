@@ -24,15 +24,14 @@ int main() {
 	window.setKeyRepeatEnabled(true);
 
 
-	Player Player;
+	Player player;
 	
 
 	//Main Loop:
 	while (window.isOpen()) {
 
-		Player.movePlayer();
-		Player.considerGravity();
-
+		player.movePlayer();
+		player.considerGravity();
 
 		//Event Loop:
 		Event Event;
@@ -51,7 +50,8 @@ int main() {
 		//	dir.x = 0;
 
 		
-		Player.drawPlayer(window);
+		player.drawPlayer(window);
+
 		window.display();
 		window.clear();
 	}

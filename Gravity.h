@@ -5,7 +5,6 @@
 #ifndef IRO_IN_THE_DARK_CHAMBER_GRAVITY_H
 #define IRO_IN_THE_DARK_CHAMBER_GRAVITY_H
 
-
 using namespace sf;
 using namespace std;
 
