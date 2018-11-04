@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////
 //
 // SFML - Simple and Fast Multimedia Library
-// Copyright (C) 2007-2018 Laurent Gomila (laurent@sfml-dev.org)
+// Copyright (C) 2007-2016 Laurent Gomila (laurent@sfml-dev.org)
 //
 // This software is provided 'as-is', without any express or implied warranty.
 // In no event will the authors be held liable for any damages arising from the use of this software.
@@ -95,9 +95,6 @@ public:
     ////////////////////////////////////////////////////////////
     /// \brief Check if a point is inside the rectangle's area
     ///
-    /// This check is non-inclusive. If the point lies on the
-    /// edge of the rectangle, this function will return false.
-    ///
     /// \param x X coordinate of the point to test
     /// \param y Y coordinate of the point to test
     ///
@@ -110,9 +107,6 @@ public:
 
     ////////////////////////////////////////////////////////////
     /// \brief Check if a point is inside the rectangle's area
-    ///
-    /// This check is non-inclusive. If the point lies on the
-    /// edge of the rectangle, this function will return false.
     ///
     /// \param point Point to test
     ///

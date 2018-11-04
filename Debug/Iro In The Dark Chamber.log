@@ -1,0 +1,28 @@
+﻿Build started 11/4/2018 2:56:35 PM.
+     1>Project "C:\Users\user\source\repos\Iro In The Dark Chamber\Iro In The Dark Chamber.vcxproj" on node 2 (Build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\Iro In T.A1E1ADAF.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.13.26128\bin\HostX86\x86\CL.exe /c /I"C:\Users\user\source\repos\Iro In The Dark Chamber\sfml\include" /ZI /nologo /W3 /WX- /diagnostics:classic /sdl /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc141.pdb" /Gd /TP /analyze- /FC /errorReport:prompt main.cpp
+         main.cpp
+     1>c:\users\user\source\repos\iro in the dark chamber\gravity.h(16): warning C4305: 'initializing': truncation from 'double' to 'float'
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.13.26128\bin\HostX86\x86\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\user\source\repos\Iro In The Dark Chamber\Debug\Iro In The Dark Chamber.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\user\source\repos\Iro In The Dark Chamber\sfml\lib" "sfml-system-d.lib" "sfml-graphics-d.lib" "sfml-audio-d.lib" "sfml-network-d.lib" "sfml-window-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG:FASTLINK /PDB:"C:\Users\user\source\repos\Iro In The Dark Chamber\Debug\Iro In The Dark Chamber.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\user\source\repos\Iro In The Dark Chamber\Debug\Iro In The Dark Chamber.lib" /MACHINE:X86 Debug\Gravity.obj
+         Debug\main.obj
+         Debug\Player.obj
+         Iro In The Dark Chamber.vcxproj -> C:\Users\user\source\repos\Iro In The Dark Chamber\Debug\Iro In The Dark Chamber.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\Iro In T.A1E1ADAF.tlog\unsuccessfulbuild".
+         Touching "Debug\Iro In T.A1E1ADAF.tlog\Iro In The Dark Chamber.lastbuildstate".
+     1>Done Building Project "C:\Users\user\source\repos\Iro In The Dark Chamber\Iro In The Dark Chamber.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+       "C:\Users\user\source\repos\Iro In The Dark Chamber\Iro In The Dark Chamber.vcxproj" (Build target) (1) ->
+       (ClCompile target) -> 
+         c:\users\user\source\repos\iro in the dark chamber\gravity.h(16): warning C4305: 'initializing': truncation from 'double' to 'float'
+
+    1 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.28
