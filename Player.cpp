@@ -40,7 +40,7 @@ using namespace std;
 
 	void Player::considerGravity() {
 		Gravity::considerGravity(sPlayer);
-	}w
+	}
 
 
 
