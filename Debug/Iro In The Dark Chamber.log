@@ -1,4 +1,5 @@
 ﻿  main.cpp
 c:\users\jvrekk\source\repos\iro-and-the-light-forest\gravity.h(16): warning C4305: "inicjowanie": obcięcie z "double" do "float"
 c:\users\jvrekk\source\repos\iro-and-the-light-forest\player.h(25): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\jvrekk\source\repos\iro-and-the-light-forest\main.cpp(37): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
   Iro In The Dark Chamber.vcxproj -> C:\Users\Jvrekk\source\repos\Iro-And-The-Light-Forest\Debug\Iro In The Dark Chamber.exe

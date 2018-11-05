@@ -30,12 +30,12 @@ int main() {
 
 
 	Player player;
-	Box Box1;
-	Box Box2;
-	Box Box3;
-	Box1.setter(128, 300);
-	Box2.setter(256, 300);
-	Box3.setter(512, 300);
+	Box BoxArr[5];
+
+	for (int i = 0; i < 5 ;i++)
+	{
+		BoxArr[i].setter(i * 128, 300);
+	}
 	
 
 	//Main Loop:
@@ -60,22 +60,17 @@ int main() {
 		//	if (dir.x * 32 >= texture.getSize().x)
 		//	dir.x = 0;
 
-		Box1.drawBox(window);
-		Box2.drawBox(window);
-		Box3.drawBox(window);
+		
+		for (int i = 0; i < 5; i++)
+		{
+			BoxArr[i].drawBox(window);
+			if (Collision::PixelPerfectTest(player.getSprite(), BoxArr[i].getSprite())) {
+				cout << "COLLISION BOX DETECTED" << endl;
+				player.collision();
+			}
+		}
 		player.drawPlayer(window);
-		if (Collision::PixelPerfectTest(player.getSprite(), Box1.getSprite())) {
-			cout << "COLLISION BOX1 DETECTED" << endl;
-			player.collision();
-		}
-		if (Collision::PixelPerfectTest(player.getSprite(), Box2.getSprite())) {
-			cout << "COLLISION BOX2 DETECTED" << endl;
-			player.collision();
-		}		
-		if (Collision::PixelPerfectTest(player.getSprite(), Box3.getSprite())) {
-			cout << "COLLISION BOX3 DETECTED" << endl;
-			player.collision();
-		}
+
 		
 		window.display();
 		window.clear();
