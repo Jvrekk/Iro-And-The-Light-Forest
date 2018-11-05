@@ -3,6 +3,11 @@
 #include <SFML/Graphics.hpp>
 #include "Player.h"
 #include "Gravity.h"
+#include "Box.h"
+
+#include "Collision.h"
+
+
 
 using namespace sf;
 using namespace std;
@@ -25,6 +30,12 @@ int main() {
 
 
 	Player player;
+	Box Box1;
+	Box Box2;
+	Box Box3;
+	Box1.setter(128, 300);
+	Box2.setter(256, 300);
+	Box3.setter(512, 300);
 	
 
 	//Main Loop:
@@ -49,9 +60,23 @@ int main() {
 		//	if (dir.x * 32 >= texture.getSize().x)
 		//	dir.x = 0;
 
-		
+		Box1.drawBox(window);
+		Box2.drawBox(window);
+		Box3.drawBox(window);
 		player.drawPlayer(window);
-
+		if (Collision::PixelPerfectTest(player.getSprite(), Box1.getSprite())) {
+			cout << "COLLISION BOX1 DETECTED" << endl;
+			player.collision();
+		}
+		if (Collision::PixelPerfectTest(player.getSprite(), Box2.getSprite())) {
+			cout << "COLLISION BOX2 DETECTED" << endl;
+			player.collision();
+		}		
+		if (Collision::PixelPerfectTest(player.getSprite(), Box3.getSprite())) {
+			cout << "COLLISION BOX3 DETECTED" << endl;
+			player.collision();
+		}
+		
 		window.display();
 		window.clear();
 	}

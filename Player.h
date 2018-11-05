@@ -17,10 +17,12 @@ public:
 	void drawPlayer(RenderWindow &window);
 	void movePlayer();
 	void considerGravity();
+	void collision();
+	sf::Sprite getSprite();
 	
 private:
 
-	float moveSpeed = 0.5;
+	float moveSpeed = 0.2;
 	sf::Sprite sPlayer;
 	sf::Texture tPlayer;
 };

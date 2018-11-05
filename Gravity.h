@@ -13,7 +13,7 @@ public:
 	template <class T> void considerGravity(T &Obj);
 
 private:
-	float gSpeed = 0.4;
+	float gSpeed = 0.2;
 };
 
 #endif // !IRO_IN_THE_DARK_CHAMBER_GRAVITY_H

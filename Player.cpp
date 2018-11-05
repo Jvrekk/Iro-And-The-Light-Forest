@@ -41,6 +41,13 @@ using namespace std;
 	void Player::considerGravity() {
 		Gravity::considerGravity(sPlayer);
 	}
+	void Player::collision() {
+		sPlayer.move(0, -moveSpeed);
+	}
+	sf::Sprite Player::getSprite() {
+		return this->sPlayer;
+	};
+
 
 
 
