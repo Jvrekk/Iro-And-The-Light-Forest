@@ -3,6 +3,7 @@
 #include <iostream>
 #include <SFML\Graphics.hpp>
 #include "Gravity.h"
+#include "MouseDirections.h"
 #ifndef IRO_IN_THE_DARK_CHAMBER_PLAYER_H
 #define IRO_IN_THE_DARK_CHAMBER_PLAYER_H
 
@@ -20,8 +21,9 @@ public:
 	void collision();
 	void jetpack();
 
-	sf::Sprite getSprite();
-	
+	Sprite getSprite();
+
+
 private:
 	bool jumpAble;
 	float fuel = 500;
@@ -32,5 +34,8 @@ private:
 
 	sf::Sprite sPlayer;
 	sf::Texture tPlayer;
+
+	
+
 };
 #endif // !IRO_IN_THE_DARK_CHAMBER_PLAYER_H

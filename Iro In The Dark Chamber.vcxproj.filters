@@ -30,6 +30,9 @@
     <ClCompile Include="Box.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="MouseDirections.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Box.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseDirections.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -4,17 +4,15 @@
 #include "Player.h"
 #include "Gravity.h"
 #include "Box.h"
-
 #include "Collision.h"
+#include "MouseDirections.h"
 
 
 
 using namespace sf;
 using namespace std;
 
-// zmienne globalne do kierunkow // Vector nie moze zostaw utworzony w non-static polu 
-enum Directions {RIGHT, LEFT};
-sf::Vector2i dir(0, RIGHT);
+
 
 
 int main() {
@@ -28,7 +26,7 @@ int main() {
 
 	window.setKeyRepeatEnabled(true);
 
-
+	MouseDirections md;
 	Player player;
 	Box BoxArr[5];
 
@@ -55,17 +53,23 @@ int main() {
 			}
 		}
 	
-		//loop textur			 TODO 
+		//TODO
 		//	dir.x++;
 		//	if (dir.x * 32 >= texture.getSize().x)
 		//	dir.x = 0;
 
-		
+
+
+	// TODO 
+	//	md.mouseDirections(window, player.getSprite());
+	//	md.getRotation(window, player.getSprite());
+
+
+
 		for (int i = 0; i < 5; i++)
 		{
 			BoxArr[i].drawBox(window);
 			if (Collision::PixelPerfectTest(player.getSprite(), BoxArr[i].getSprite())) {
-			//	cout << "COLLISION BOX DETECTED" << endl;
 				player.collision();
 			}
 		}

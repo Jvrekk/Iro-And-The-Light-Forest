@@ -20,7 +20,11 @@ using namespace std;
 	}
 
 	void Player::drawPlayer(RenderWindow &window) {
-		sPlayer.setTextureRect(sf::IntRect(0 * sPlayer.getGlobalBounds().width, 0 * sPlayer.getGlobalBounds().height, 32, 32));
+
+		enum Directions { RIGHT, LEFT };
+		sf::Vector2i dir(0, RIGHT);
+
+		sPlayer.setTextureRect(sf::IntRect(dir.x * sPlayer.getGlobalBounds().width, dir.y * sPlayer.getGlobalBounds().height, 32, 32));
 		window.draw(sPlayer);
 	}
 
@@ -74,7 +78,6 @@ using namespace std;
 	sf::Sprite Player::getSprite() {
 		return this->sPlayer;
 	};
-
 
 
 
