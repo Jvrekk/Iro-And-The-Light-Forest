@@ -65,7 +65,7 @@ int main() {
 		{
 			BoxArr[i].drawBox(window);
 			if (Collision::PixelPerfectTest(player.getSprite(), BoxArr[i].getSprite())) {
-				cout << "COLLISION BOX DETECTED" << endl;
+			//	cout << "COLLISION BOX DETECTED" << endl;
 				player.collision();
 			}
 		}

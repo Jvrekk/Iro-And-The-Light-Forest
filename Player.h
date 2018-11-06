@@ -18,11 +18,18 @@ public:
 	void movePlayer();
 	void considerGravity();
 	void collision();
+	void jetpack();
+
 	sf::Sprite getSprite();
 	
 private:
-
+	bool jumpAble;
+	float fuel = 500;
+	float fuelMax = 500;
+	float fuelLoss = 0.5;
+	float fuelUsage = 0.2;
 	float moveSpeed = 0.2;
+
 	sf::Sprite sPlayer;
 	sf::Texture tPlayer;
 };

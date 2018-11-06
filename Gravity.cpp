@@ -12,6 +12,3 @@ using namespace std;
 	template <class T> void Gravity::considerGravity(T &Obj) {
 		Obj.move(0, gSpeed);
 	};
-
-
-	

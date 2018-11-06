@@ -20,22 +20,49 @@ using namespace std;
 	}
 
 	void Player::drawPlayer(RenderWindow &window) {
-		sPlayer.setTextureRect(sf::IntRect(0 * 32, 0 * 32, 32, 32));
+		sPlayer.setTextureRect(sf::IntRect(0 * sPlayer.getGlobalBounds().width, 0 * sPlayer.getGlobalBounds().height, 32, 32));
 		window.draw(sPlayer);
 	}
 
 	void Player::movePlayer() {
 
-		if (Keyboard::isKeyPressed(Keyboard::W)) {
-			sPlayer.move(0, -moveSpeed * 3);
-		}
+		jetpack();
+
 		if (Keyboard::isKeyPressed(Keyboard::A)) {
 			sPlayer.move(-moveSpeed, 0);
 	
 		}
-		else if (Keyboard::isKeyPressed(Keyboard::D)) {
+		 if (Keyboard::isKeyPressed(Keyboard::D)) {
 			sPlayer.move(moveSpeed, 0);
 		}
+	}
+
+
+	void Player::jetpack() {
+
+		fuel += fuelLoss;
+
+		if (fuel > fuelMax) fuel = fuelMax;
+		if (fuel < 0) fuel = 0;
+
+		if (Keyboard::isKeyPressed(Keyboard::W)) {
+
+			if (jumpAble) {
+				fuelLoss = -fuelUsage * 3;
+				sPlayer.move(0, -moveSpeed * 2);
+				if (fuel <= 1)
+					jumpAble = false;
+			}
+			else {
+				fuel += fuelUsage;
+				if (fuel >= fuelMax / 2)
+					jumpAble = true;
+			}
+		}
+		else {
+			fuelLoss = fuelUsage;
+		}
+
 	}
 
 	void Player::considerGravity() {
