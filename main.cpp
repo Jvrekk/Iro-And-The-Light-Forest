@@ -58,10 +58,9 @@ int main() {
 		//	if (dir.x * 32 >= texture.getSize().x)
 		//	dir.x = 0;
 
-
-
 	// TODO 
 	//	md.mouseDirections(window, player.getSprite());
+
 	//	md.getRotation(window, player.getSprite());
 
 

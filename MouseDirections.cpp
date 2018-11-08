@@ -6,7 +6,6 @@
 #include "SFML\Window.hpp"
 #include <SFML\Graphics.hpp>
 #include "MouseDirections.h"
-#include "Player.h"
 
 
 using namespace sf;
@@ -22,7 +21,7 @@ Vector2f MouseDirections::mouseDirections(RenderWindow &window, Sprite player) {
 	mTargetDir = mCurrentPos - centrePlayerPos; // oblicza pozycje myszki od postaci nie od poczatku okna 
 
 	mTargetDirCalc = mTargetDir / sqrt(pow(mTargetDir.x, 2) + pow(mTargetDir.y, 2)); 
-
+	cout << mTargetDirCalc.x << ',' << mTargetDirCalc.y << endl;
 	return mTargetDirCalc;
 }
 
@@ -41,5 +40,6 @@ float MouseDirections::getRotation(RenderWindow &window, Sprite player) {
 
 	float rotation = (atan2(mTargetDir.x, mTargetDir.y)) * 180 / PI;
 	rotation += 180;
+	cout << rotation << endl;
 	return rotation;
 }

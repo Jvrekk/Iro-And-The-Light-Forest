@@ -13,13 +13,16 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\Player">
+      <UniqueIdentifier>{0d5f1dc1-6c8a-4a9f-aa3c-0bb372f504e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Player">
+      <UniqueIdentifier>{d7a01c48-253c-42b6-a049-8618e2d23972}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="Gravity.cpp">
       <Filter>Resource Files</Filter>
@@ -33,11 +36,14 @@
     <ClCompile Include="MouseDirections.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Resource Files\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Resource Files\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Gravity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -49,6 +55,12 @@
     </ClInclude>
     <ClInclude Include="MouseDirections.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Header Files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

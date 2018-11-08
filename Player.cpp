@@ -3,28 +3,34 @@
 #include <iostream>
 #include <SFML\Graphics.hpp>
 #include "Gravity.h"
-#include "Gravity.cpp"
 #include "Player.h"
+#include "MouseDirections.h"
 
 using namespace sf;
 using namespace std;
 
-	
-	Player::Player() {
-		if (!tPlayer.loadFromFile("images/player.png"))
-		{
-			cout << "load player.png failed";
-			EXIT_FAILURE;
-		}
-		sPlayer.setTexture(tPlayer);
+
+Player::Player() {
+	if (!tPlayer.loadFromFile("images/player.png"))
+	{
+		cout << "load player.png failed";
+		EXIT_FAILURE;
 	}
+	sPlayer.setTexture(tPlayer);
+}
 
-	void Player::drawPlayer(RenderWindow &window) {
+void Player::drawPlayer(RenderWindow &window) {
 
-		enum Directions { RIGHT, LEFT };
-		sf::Vector2i dir(0, RIGHT);
-
-		sPlayer.setTextureRect(sf::IntRect(dir.x * sPlayer.getGlobalBounds().width, dir.y * sPlayer.getGlobalBounds().height, 32, 32));
+	enum Directions { RIGHT, LEFT };
+	sf::Vector2i dir(0, RIGHT);
+	if (MouseDirections::getRotation(window, sPlayer)< 180){
+		
+		sPlayer.setTextureRect(sf::IntRect(dir.x * sPlayer.getGlobalBounds().width, LEFT * sPlayer.getGlobalBounds().height, 32, 32));
+	}
+	else if(MouseDirections::getRotation(window, sPlayer) > 180){
+		sPlayer.setTextureRect(sf::IntRect(dir.x * sPlayer.getGlobalBounds().width, RIGHT * sPlayer.getGlobalBounds().height, 32, 32));
+	}
+		
 		window.draw(sPlayer);
 	}
 
@@ -72,12 +78,15 @@ using namespace std;
 	void Player::considerGravity() {
 		Gravity::considerGravity(sPlayer);
 	}
+
+
 	void Player::collision() {
 		sPlayer.move(0, -moveSpeed);
 	}
 	sf::Sprite Player::getSprite() {
 		return this->sPlayer;
-	};
+	}
+	
 
 
 

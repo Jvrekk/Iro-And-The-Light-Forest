@@ -1,9 +1,10 @@
 #pragma once
+
+#ifndef IRO_IN_THE_DARK_CHAMBER_BOX_H
+#define IRO_IN_THE_DARK_CHAMBER_BOX_H
 #include <cstdlib>
 #include <iostream>
 #include <SFML\Graphics.hpp>
-#ifndef IRO_IN_THE_DARK_CHAMBER_BOX_H
-#define IRO_IN_THE_DARK_CHAMBER_BOX_H
 
 using namespace sf;
 using namespace std;

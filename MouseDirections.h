@@ -1,4 +1,7 @@
 #pragma once
+
+#ifndef IRO_IN_THE_DARK_CHAMBER_MOUSEDIRECTIONS_H
+#define IRO_IN_THE_DARK_CHAMBER_MOUSEDIRECTIONS_H
 #include <cstdlib>
 #include <math.h>
 #include <vector>
@@ -6,12 +9,7 @@
 #include "SFML\System.hpp"
 #include "SFML\Window.hpp"
 #include <SFML\Graphics.hpp>
-#include "Player.h"
 
-#ifndef IRO_IN_THE_DARK_CHAMBER_MOUSEDIRECTIONS_H
-#define IRO_IN_THE_DARK_CHAMBER_MOUSEDIRECTIONS_H
-////LENGTH OF VECTOR: |V| = sqrt(V.x^2 + V.y^2)
-////NORMALIZE VECTOR: U = V / |V|
 
 using namespace sf;
 
