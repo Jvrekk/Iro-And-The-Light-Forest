@@ -30,11 +30,6 @@ public:
 
 
 private:
-	bool jumpAble;
-	float fuel = 500;
-	float fuelMax = 500;
-	float fuelLoss = 0.5;
-	float fuelUsage = 0.2;
 	float moveSpeed = 0.2;
 
 	sf::Sprite sPlayer;

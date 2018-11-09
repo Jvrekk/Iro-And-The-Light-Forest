@@ -1,20 +1,15 @@
-﻿  JetPack.cpp
-c:\users\jvrekk\source\repos\iro-and-the-light-forest\jetpack.h(17): warning C4305: "inicjowanie": obcięcie z "double" do "float"
-c:\users\jvrekk\source\repos\iro-and-the-light-forest\jetpack.h(21): warning C4305: "inicjowanie": obcięcie z "double" do "float"
-  Player.cpp
+﻿  Player.cpp
 c:\users\jvrekk\source\repos\iro-and-the-light-forest\gravity.h(16): warning C4305: "inicjowanie": obcięcie z "double" do "const float"
 c:\users\jvrekk\source\repos\iro-and-the-light-forest\jetpack.h(17): warning C4305: "inicjowanie": obcięcie z "double" do "float"
 c:\users\jvrekk\source\repos\iro-and-the-light-forest\jetpack.h(21): warning C4305: "inicjowanie": obcięcie z "double" do "float"
-c:\users\jvrekk\source\repos\iro-and-the-light-forest\player.h(37): warning C4305: "inicjowanie": obcięcie z "double" do "float"
-c:\users\jvrekk\source\repos\iro-and-the-light-forest\player.h(38): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\jvrekk\source\repos\iro-and-the-light-forest\player.h(33): warning C4305: "inicjowanie": obcięcie z "double" do "float"
 c:\users\jvrekk\source\repos\iro-and-the-light-forest\player.cpp(29): warning C4244: "argument": konwersja z "float" do "int", możliwa utrata danych
 c:\users\jvrekk\source\repos\iro-and-the-light-forest\player.cpp(32): warning C4244: "argument": konwersja z "float" do "int", możliwa utrata danych
   main.cpp
 c:\users\jvrekk\source\repos\iro-and-the-light-forest\gravity.h(16): warning C4305: "inicjowanie": obcięcie z "double" do "const float"
 c:\users\jvrekk\source\repos\iro-and-the-light-forest\jetpack.h(17): warning C4305: "inicjowanie": obcięcie z "double" do "float"
 c:\users\jvrekk\source\repos\iro-and-the-light-forest\jetpack.h(21): warning C4305: "inicjowanie": obcięcie z "double" do "float"
-c:\users\jvrekk\source\repos\iro-and-the-light-forest\player.h(37): warning C4305: "inicjowanie": obcięcie z "double" do "float"
-c:\users\jvrekk\source\repos\iro-and-the-light-forest\player.h(38): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\jvrekk\source\repos\iro-and-the-light-forest\player.h(33): warning C4305: "inicjowanie": obcięcie z "double" do "float"
 c:\users\jvrekk\source\repos\iro-and-the-light-forest\main.cpp(35): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
   Generowanie kodu...
   Iro In The Dark Chamber.vcxproj -> C:\Users\Jvrekk\source\repos\Iro-And-The-Light-Forest\Debug\Iro In The Dark Chamber.exe
