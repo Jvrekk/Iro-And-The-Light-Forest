@@ -127,6 +127,7 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Gravity.cpp" />
+    <ClCompile Include="JetPack.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MouseDirections.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -136,6 +137,7 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="collision.h" />
     <ClInclude Include="Gravity.h" />
+    <ClInclude Include="JetPack.h" />
     <ClInclude Include="MouseDirections.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
