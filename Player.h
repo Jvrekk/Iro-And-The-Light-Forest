@@ -8,10 +8,11 @@
 #include <iostream>
 #include <SFML\Graphics.hpp>
 #include "Gravity.h"
+#include "JetPack.h"
 using namespace sf;
 using namespace std;
 
-class Player : public Gravity, MouseDirections {
+class Player : public JetPack, Gravity, MouseDirections {
 public:
 	
 

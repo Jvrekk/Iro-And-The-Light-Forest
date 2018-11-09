@@ -42,6 +42,9 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>Resource Files\Player</Filter>
     </ClCompile>
+    <ClCompile Include="JetPack.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gravity.h">
@@ -61,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="JetPack.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

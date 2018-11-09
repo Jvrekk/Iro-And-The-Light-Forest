@@ -3,6 +3,7 @@
 #include <iostream>
 #include <SFML\Graphics.hpp>
 #include "Gravity.h"
+#include "JetPack.h"
 #include "Player.h"
 #include "MouseDirections.h"
 
@@ -49,30 +50,7 @@ void Player::drawPlayer(RenderWindow &window) {
 
 
 	void Player::jetpack() {
-
-		fuel += fuelLoss;
-
-		if (fuel > fuelMax) fuel = fuelMax;
-		if (fuel < 0) fuel = 0;
-
-		if (Keyboard::isKeyPressed(Keyboard::W)) {
-
-			if (jumpAble) {
-				fuelLoss = -fuelUsage * 3;
-				sPlayer.move(0, -moveSpeed * 2);
-				if (fuel <= 1)
-					jumpAble = false;
-			}
-			else {
-				fuel += fuelUsage;
-				if (fuel >= fuelMax / 2)
-					jumpAble = true;
-			}
-		}
-		else {
-			fuelLoss = fuelUsage;
-		}
-
+		JetPack::Fly(sPlayer);
 	}
 
 	void Player::considerGravity() {
