@@ -30,7 +30,7 @@ public:
 
 
 private:
-	float moveSpeed = 0.2;
+	float moveSpeed = 1;
 
 	sf::Sprite sPlayer;
 	sf::Texture tPlayer;

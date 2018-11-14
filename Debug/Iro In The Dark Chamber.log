@@ -1,0 +1,22 @@
+﻿  Box.cpp
+  Bullet.cpp
+c:\users\jvrekk\source\repos\iro-and-the-light-forest\jetpack.h(21): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\jvrekk\source\repos\iro-and-the-light-forest\bullet.h(14): warning C4584: „Bullet”: klasa bazowa „MouseDirections” jest już klasą bazową „Player”
+  c:\users\jvrekk\source\repos\iro-and-the-light-forest\mousedirections.h(16): note: zobacz deklarację „MouseDirections”
+  c:\users\jvrekk\source\repos\iro-and-the-light-forest\player.h(15): note: zobacz deklarację „Player”
+  Gravity.cpp
+  JetPack.cpp
+c:\users\jvrekk\source\repos\iro-and-the-light-forest\jetpack.h(21): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+  MouseDirections.cpp
+c:\users\jvrekk\source\repos\iro-and-the-light-forest\mousedirections.cpp(39): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+  Player.cpp
+c:\users\jvrekk\source\repos\iro-and-the-light-forest\jetpack.h(21): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+c:\users\jvrekk\source\repos\iro-and-the-light-forest\player.cpp(29): warning C4244: "argument": konwersja z "float" do "int", możliwa utrata danych
+c:\users\jvrekk\source\repos\iro-and-the-light-forest\player.cpp(32): warning C4244: "argument": konwersja z "float" do "int", możliwa utrata danych
+  entrance.cpp
+  main.cpp
+c:\users\jvrekk\source\repos\iro-and-the-light-forest\jetpack.h(21): warning C4305: "inicjowanie": obcięcie z "double" do "float"
+  Generowanie kodu...
+c:\users\jvrekk\source\repos\iro-and-the-light-forest\bullet.cpp(45): warning C4715: "Bullet::outOfBounds”: niewszystkie ścieżki kodu zwracają wartość
+  LINK : nie znaleziono elementu C:\Users\Jvrekk\source\repos\Iro-And-The-Light-Forest\Debug\Iro In The Dark Chamber.exe ani nie został on skompilowany podczas ostatniego konsolidowania przyrostowego; zostanie wykonana pełna konsolidacja
+  Iro In The Dark Chamber.vcxproj -> C:\Users\Jvrekk\source\repos\Iro-And-The-Light-Forest\Debug\Iro In The Dark Chamber.exe

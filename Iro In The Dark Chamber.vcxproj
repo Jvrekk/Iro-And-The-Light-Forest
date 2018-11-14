@@ -126,6 +126,7 @@
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Collision.cpp" />
+    <ClCompile Include="entrance.cpp" />
     <ClCompile Include="Gravity.cpp" />
     <ClCompile Include="JetPack.cpp" />
     <ClCompile Include="main.cpp" />
@@ -136,6 +137,7 @@
     <ClInclude Include="Box.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="collision.h" />
+    <ClInclude Include="entrance.h" />
     <ClInclude Include="Gravity.h" />
     <ClInclude Include="JetPack.h" />
     <ClInclude Include="MouseDirections.h" />

@@ -12,7 +12,7 @@ using namespace std;
 
 
 Player::Player() {
-	if (!tPlayer.loadFromFile("images/player.png"))
+	if (!tPlayer.loadFromFile("images/playerScale.png"))
 	{
 		cout << "load player.png failed";
 		EXIT_FAILURE;
@@ -26,10 +26,10 @@ void Player::drawPlayer(RenderWindow &window) {
 	sf::Vector2i dir(0, RIGHT);
 	if (MouseDirections::getRotation(window, sPlayer)< 180){
 		
-		sPlayer.setTextureRect(sf::IntRect(dir.x * sPlayer.getGlobalBounds().width, LEFT * sPlayer.getGlobalBounds().height, 32, 32));
+		sPlayer.setTextureRect(sf::IntRect(dir.x * sPlayer.getGlobalBounds().width, LEFT * sPlayer.getGlobalBounds().height, 128, 128));
 	}
 	else if(MouseDirections::getRotation(window, sPlayer) > 180){
-		sPlayer.setTextureRect(sf::IntRect(dir.x * sPlayer.getGlobalBounds().width, RIGHT * sPlayer.getGlobalBounds().height, 32, 32));
+		sPlayer.setTextureRect(sf::IntRect(dir.x * sPlayer.getGlobalBounds().width, RIGHT * sPlayer.getGlobalBounds().height, 128, 128));
 	}
 		
 		window.draw(sPlayer);
@@ -60,6 +60,8 @@ void Player::drawPlayer(RenderWindow &window) {
 
 	void Player::collision() {
 		sPlayer.move(0, -moveSpeed);
+
+		
 	}
 	sf::Sprite Player::getSprite() {
 		return this->sPlayer;
