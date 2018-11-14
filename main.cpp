@@ -30,17 +30,13 @@ int main() {
 
 	MouseDirections md;
 	Player player;
-	//Box BoxArr[5];
+
 	Entrance entrance,entrance2;
 
 	entrance.setPosition(0, 0);
 	entrance2.setPosition(1056, 0);
 
-	/*for (int i = 0; i < 5 ;i++)
-	{
-		BoxArr[i].setter(i * 128, 300);
-	}*/
-	
+
 
 	//Main Loop:
 	while (window.isOpen()) {
@@ -58,26 +54,7 @@ int main() {
 				break;
 			}
 		}
-	
-		//TODO
-		//	dir.x++;
-		//	if (dir.x * 32 >= texture.getSize().x)
-		//	dir.x = 0;
 
-	// TODO 
-	//	md.mouseDirections(window, player.getSprite());
-
-	//	md.getRotation(window, player.getSprite());
-
-
-
-		/*for (int i = 0; i < 5; i++)
-		{
-			BoxArr[i].drawBox(window);
-			if (Collision::PixelPerfectTest(player.getSprite(), BoxArr[i].getSprite())) {
-				player.collision();
-			}
-		}*/
 		player.considerGravity();
 		entrance.draw(window);
 		entrance2.draw(window);
