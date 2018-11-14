@@ -19,6 +19,12 @@
     <Filter Include="Header Files\Player">
       <UniqueIdentifier>{d7a01c48-253c-42b6-a049-8618e2d23972}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\map">
+      <UniqueIdentifier>{807ee1a4-f522-4017-b56b-8eaf8fbcd57f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\map">
+      <UniqueIdentifier>{e4126e79-7bd3-46a1-bc3c-272ad08ec4b4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -45,6 +51,9 @@
     <ClCompile Include="JetPack.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="entrance.cpp">
+      <Filter>Resource Files\map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gravity.h">
@@ -67,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="JetPack.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="entrance.h">
+      <Filter>Header Files\map</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

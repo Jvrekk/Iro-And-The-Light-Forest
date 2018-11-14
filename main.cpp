@@ -6,11 +6,13 @@
 #include "Box.h"
 #include "Collision.h"
 #include "MouseDirections.h"
+#include "entrance.h"
 
 
 
 using namespace sf;
 using namespace std;
+using namespace Collision;
 
 
 
@@ -21,26 +23,30 @@ int main() {
 	RenderWindow window;
 	Vector2i centerWindow((VideoMode::getDesktopMode().width / 2) - 755, (VideoMode::getDesktopMode().height / 2) - 390);
 
-	window.create(VideoMode(1500, 700), "Iro And The Light Forest", Style::Titlebar | Style::Close);
+	window.create(VideoMode(1500, 672), "Iro And The Light Forest", Style::Titlebar | Style::Close);
 	window.setPosition(centerWindow);
 
 	window.setKeyRepeatEnabled(true);
 
 	MouseDirections md;
 	Player player;
-	Box BoxArr[5];
+	//Box BoxArr[5];
+	Entrance entrance,entrance2;
 
-	for (int i = 0; i < 5 ;i++)
+	entrance.setPosition(0, 0);
+	entrance2.setPosition(1056, 0);
+
+	/*for (int i = 0; i < 5 ;i++)
 	{
 		BoxArr[i].setter(i * 128, 300);
-	}
+	}*/
 	
 
 	//Main Loop:
 	while (window.isOpen()) {
 
 		player.movePlayer();
-		player.considerGravity();
+		
 
 		//Event Loop:
 		Event Event;
@@ -65,12 +71,27 @@ int main() {
 
 
 
-		for (int i = 0; i < 5; i++)
+		/*for (int i = 0; i < 5; i++)
 		{
 			BoxArr[i].drawBox(window);
 			if (Collision::PixelPerfectTest(player.getSprite(), BoxArr[i].getSprite())) {
 				player.collision();
 			}
+		}*/
+		player.considerGravity();
+		entrance.draw(window);
+		entrance2.draw(window);
+		if (PixelPerfectTest( player.getSprite(), entrance.getGroundSprite() )){
+			player.collision();
+		}
+		if (PixelPerfectTest(player.getSprite(), entrance2.getGroundSprite())) {
+			player.collision();
+		}
+		if (PixelPerfectTest(player.getSprite(), entrance.getUpperGroundSprite())) {
+			player.collision();
+		}
+		if (PixelPerfectTest(player.getSprite(), entrance2.getUpperGroundSprite())) {
+			player.collision();
 		}
 		player.drawPlayer(window);
 

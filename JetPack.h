@@ -14,7 +14,7 @@ public:
 
 private:
 	bool jumpAble;
-	float flySpeed = 0.4;
+	float flySpeed = 3;
 	float fuel = 500;
 	float fuelMax = 500;
 	float fuelLoss = 0.5;

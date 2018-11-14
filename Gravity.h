@@ -13,7 +13,7 @@ public:
 	void considerGravity(Sprite &Obj);
 
 private:
-	const float gSpeed = 0.2;
+	const float gSpeed = 1;
 };
 
 #endif // !IRO_IN_THE_DARK_CHAMBER_GRAVITY_H

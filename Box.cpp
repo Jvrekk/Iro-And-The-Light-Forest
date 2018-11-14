@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <SFML\Graphics.hpp>
-#include "Box.h"
+#include "box.h"
 
 
 using namespace sf;
