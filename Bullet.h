@@ -14,7 +14,7 @@ using namespace std;
 class Bullet : public Player, MouseDirections {
 public:
 
-	Bullet(float x,float y);
+	Bullet(float x,float y, Vector2f target);
 	void drawBullet(RenderWindow& window);
 	void moveBullet(RenderWindow& window);
 
@@ -24,6 +24,7 @@ public:
 private:
 	Vector2f maxSpeed;
 	Vector2f currentVelocity;
+	Vector2f bTarget;
 	sf::Sprite sBullet;
 	sf::Texture tBullet;
 };

@@ -21,6 +21,7 @@ using namespace Collision;
 
 int main() {
 	
+
 	//WINDOW SETTINGS
 	RenderWindow window;
 	Vector2i centerWindow((VideoMode::getDesktopMode().width / 2) - 755, (VideoMode::getDesktopMode().height / 2) - 390);
@@ -52,7 +53,7 @@ int main() {
 		
 		if (Mouse::isButtonPressed(Mouse::Left)) {
 
-			bVector.push_back(Bullet(player.getSprite().getPosition().x, player.getSprite().getPosition().y));
+			bVector.push_back(Bullet(player.getSprite().getPosition().x, player.getSprite().getPosition().y, md.mouseDirections(window, player.getSprite())));
 
 			//cout << "bullet z prest" << endl;
 			//	cout << "BULLET #" <<  id++ << endl;
@@ -63,16 +64,8 @@ int main() {
 		if (!(bVector.empty())) {
 			for (int i = 0; i < bVector.size(); i++)
 			{
-				try
-				{
-					bVector.at(i).moveBullet(window);
-				}
-				catch (const std::exception&)
-				{
-					cout << endl << " exception moveBullet " << endl;
-					system("pause");
-				}
-
+				bVector.at(i).moveBullet(window);
+				
 				//cout << "bullet z z move" << endl;;
 				//	cout << "move " << endl;
 			}

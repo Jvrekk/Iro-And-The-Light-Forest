@@ -11,8 +11,9 @@
 using namespace sf;
 using namespace std;
 
-Bullet::Bullet(float x,float y) {
+Bullet::Bullet(float x,float y, Vector2f target) {
 
+	bTarget = target;
 	if (!tBullet.loadFromFile("images/bullet.png"))
 	{
 		cout << "load bullet.png failed";
@@ -28,7 +29,7 @@ void Bullet::drawBullet(RenderWindow& window) {
 }
 
 void Bullet::moveBullet(RenderWindow & win) {
-		sBullet.move(MouseDirections::mouseDirections(win, getSprite()));
+		sBullet.move(bTarget);
 }
 
 //TODO
