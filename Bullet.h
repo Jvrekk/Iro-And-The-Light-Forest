@@ -26,6 +26,7 @@ private:
 	Vector2f currentVelocity;
 	sf::Sprite sBullet;
 	sf::Texture tBullet;
+	float x, y;
 
 };
 

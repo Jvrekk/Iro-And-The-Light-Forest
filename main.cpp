@@ -2,12 +2,14 @@
 #include <stdlib.h>
 #include <SFML/Graphics.hpp>
 #include "Player.h"
+#include <list>
 #include "Gravity.h"
 #include "Box.h"
+#include "Bullet.h"
 #include "Collision.h"
 #include "MouseDirections.h"
 #include "entrance.h"
-
+#include <vector>
 
 
 using namespace sf;
@@ -28,8 +30,12 @@ int main() {
 
 	window.setKeyRepeatEnabled(true);
 
+	vector<Bullet> bVector; 
+
+
 	MouseDirections md;
 	Player player;
+	
 
 	Entrance entrance,entrance2;
 
@@ -43,10 +49,41 @@ int main() {
 
 		player.movePlayer();
 		
+		
+		if (Mouse::isButtonPressed(Mouse::Left)) {
+
+			bVector.push_back(Bullet());
+
+			//cout << "bullet z prest" << endl;
+			//	cout << "BULLET #" <<  id++ << endl;
+		} 
+
+
+		
+		if (!(bVector.empty())) {
+			for (int i = 0; i < bVector.size(); i++)
+			{
+				try
+				{
+					bVector.at(i).moveBullet(window);
+				}
+				catch (const std::exception&)
+				{
+					cout << endl << " exception moveBullet " << endl;
+					system("pause");
+				}
+
+				//cout << "bullet z z move" << endl;;
+				//	cout << "move " << endl;
+			}
+		}
+		
+		
 
 		//Event Loop:
 		Event Event;
 		while (window.pollEvent(Event)) {
+
 			switch (Event.type) {
 
 			case Event::Closed:
@@ -71,8 +108,17 @@ int main() {
 			player.collision();
 		}
 		player.drawPlayer(window);
-
 		
+		
+		if (!(bVector.empty())) {
+			for (int i = 0; i < bVector.size(); i++)
+			{
+				bVector.at(i).drawBullet(window);
+			}
+		}
+	
+		
+	
 		window.display();
 		window.clear();
 	}
