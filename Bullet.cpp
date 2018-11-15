@@ -11,15 +11,13 @@
 using namespace sf;
 using namespace std;
 
-Bullet::Bullet() {
+Bullet::Bullet(float x,float y) {
 
 	if (!tBullet.loadFromFile("images/bullet.png"))
 	{
 		cout << "load bullet.png failed";
 		EXIT_FAILURE;
 	}
-	this->x = Player::getSprite().getPosition().x;
-	this->y = Player::getSprite().getPosition().y;
 	sBullet.setPosition(x,y);
 	
 	sBullet.setTexture(tBullet);

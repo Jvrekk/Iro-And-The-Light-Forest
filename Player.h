@@ -23,7 +23,8 @@ public:
 	void considerGravity();
 	void collision();
 	void jetpack();
-	
+	float get_x();
+	float get_y();
 	Sprite getSprite();
 	
 
@@ -31,7 +32,6 @@ public:
 
 private:
 	float moveSpeed = 1;
-
 	sf::Sprite sPlayer;
 	sf::Texture tPlayer;
 

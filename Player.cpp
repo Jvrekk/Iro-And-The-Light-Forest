@@ -18,7 +18,6 @@ Player::Player() {
 		EXIT_FAILURE;
 	}
 	sPlayer.setTexture(tPlayer);
-	sPlayer.setPosition(0, 450);
 }
 
 void Player::drawPlayer(RenderWindow &window) {
@@ -37,8 +36,6 @@ void Player::drawPlayer(RenderWindow &window) {
 	}
 
 	void Player::movePlayer() {
-
-		cout << Player::getSprite().getPosition().x << endl;
 
 		jetpack();
 
@@ -60,11 +57,10 @@ void Player::drawPlayer(RenderWindow &window) {
 		Gravity::considerGravity(sPlayer);
 	}
 
-
 	void Player::collision() {
 		sPlayer.move(0, -moveSpeed);
 	}
-
 	sf::Sprite Player::getSprite() {
 		return this->sPlayer;
 	}
+

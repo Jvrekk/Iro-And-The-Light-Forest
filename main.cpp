@@ -52,7 +52,7 @@ int main() {
 		
 		if (Mouse::isButtonPressed(Mouse::Left)) {
 
-			bVector.push_back(Bullet());
+			bVector.push_back(Bullet(player.getSprite().getPosition().x, player.getSprite().getPosition().y));
 
 			//cout << "bullet z prest" << endl;
 			//	cout << "BULLET #" <<  id++ << endl;
