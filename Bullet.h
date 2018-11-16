@@ -14,7 +14,7 @@ using namespace std;
 class Bullet : public Player, MouseDirections {
 public:
 
-	Bullet(float x,float y, Vector2f target);
+	Bullet(float x,float y, Vector2f target, Texture *tex);
 	void drawBullet(RenderWindow& window);
 	void moveBullet(RenderWindow& window);
 

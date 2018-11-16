@@ -1,4 +1,4 @@
-﻿Build started 11/15/2018 8:06:06 PM.
+﻿Build started 11/16/2018 9:28:57 AM.
      1>Project "C:\Users\user\source\repos\Iro-And-The-Light-Forest\Iro In The Dark Chamber.vcxproj" on node 2 (Build target(s)).
      1>InitializeBuildStatus:
          Touching "Debug\Iro In T.A1E1ADAF.tlog\unsuccessfulbuild".
@@ -9,8 +9,6 @@
      1>c:\users\user\source\repos\iro-and-the-light-forest\bullet.h(14): warning C4584: 'Bullet': base-class 'MouseDirections' is already a base-class of 'Player'
          c:\users\user\source\repos\iro-and-the-light-forest\mousedirections.h(16): note: see declaration of 'MouseDirections'
          c:\users\user\source\repos\iro-and-the-light-forest\player.h(15): note: see declaration of 'Player'
-     1>c:\users\user\source\repos\iro-and-the-light-forest\main.cpp(65): warning C4018: '<': signed/unsigned mismatch
-     1>c:\users\user\source\repos\iro-and-the-light-forest\main.cpp(107): warning C4018: '<': signed/unsigned mismatch
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.13.26128\bin\HostX86\x86\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\user\source\repos\Iro-And-The-Light-Forest\Debug\Iro In The Dark Chamber.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\user\source\repos\Iro-And-The-Light-Forest\SFML\lib" "sfml-system-d.lib" "sfml-graphics-d.lib" "sfml-audio-d.lib" "sfml-network-d.lib" "sfml-window-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG:FASTLINK /PDB:"C:\Users\user\source\repos\Iro-And-The-Light-Forest\Debug\Iro In The Dark Chamber.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\user\source\repos\Iro-And-The-Light-Forest\Debug\Iro In The Dark Chamber.lib" /MACHINE:X86 Debug\Box.obj
          Debug\Bullet.obj
@@ -33,10 +31,8 @@ Build succeeded.
        (ClCompile target) -> 
          c:\users\user\source\repos\iro-and-the-light-forest\jetpack.h(21): warning C4305: 'initializing': truncation from 'double' to 'float'
          c:\users\user\source\repos\iro-and-the-light-forest\bullet.h(14): warning C4584: 'Bullet': base-class 'MouseDirections' is already a base-class of 'Player'
-         c:\users\user\source\repos\iro-and-the-light-forest\main.cpp(65): warning C4018: '<': signed/unsigned mismatch
-         c:\users\user\source\repos\iro-and-the-light-forest\main.cpp(107): warning C4018: '<': signed/unsigned mismatch
 
-    4 Warning(s)
+    2 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:01.46
+Time Elapsed 00:00:01.94

@@ -11,17 +11,13 @@
 using namespace sf;
 using namespace std;
 
-Bullet::Bullet(float x,float y, Vector2f target) {
+Bullet::Bullet(float x,float y, Vector2f target, Texture *tex) {
 
 	bTarget = target;
-	if (!tBullet.loadFromFile("images/bullet.png"))
-	{
-		cout << "load bullet.png failed";
-		EXIT_FAILURE;
-	}
+
 	sBullet.setPosition(x,y);
 	
-	sBullet.setTexture(tBullet);
+	sBullet.setTexture(*tex);
 }
 
 void Bullet::drawBullet(RenderWindow& window) {
@@ -34,6 +30,6 @@ void Bullet::moveBullet(RenderWindow & win) {
 
 //TODO
 bool Bullet::outOfBounds() {
-	if(sBullet.getPosition().x >= 1200 )
+	if(sBullet.getPosition().x >= 1920 || sBullet.getPosition().x <= 0 || sBullet.getPosition().y >= 1080 || sBullet.getPosition().y <= 0)
 	return true;
 }
