@@ -21,6 +21,8 @@ Vector2f MouseDirections::mouseDirections(RenderWindow &window, Sprite player) {
 
 	mTargetDirCalc = mTargetDir / sqrt(pow(mTargetDir.x, 2) + pow(mTargetDir.y, 2)); 
 	//cout << mTargetDirCalc.x << ',' << mTargetDirCalc.y << endl;
+	mTargetDirCalc.x *= 40;
+	mTargetDirCalc.y *= 40;
 	return mTargetDirCalc;
 }
 
@@ -38,7 +40,8 @@ float MouseDirections::getRotation(RenderWindow &window, Sprite player) {
 	const float PI = 3.14159265;
 
 	float rotation = (atan2(mTargetDir.x, mTargetDir.y)) * 180 / PI;
-	rotation += 180;
-//	cout << rotation << endl;
+	rotation -= 180;
+	rotation = -rotation;
+	//cout << rotation << endl;
 	return rotation;
 }

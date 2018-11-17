@@ -13,10 +13,13 @@ using namespace std;
 
 class Bullet : public Player, MouseDirections {
 public:
-
-	Bullet(float x,float y, Vector2f target, Texture *tex);
+	Bullet();
+	Bullet(float x, float y, Vector2f target, Texture *tex, float direction);
+	void setter(float x,float y, Vector2f target, Texture *tex,float direction);
 	void drawBullet(RenderWindow& window);
 	void moveBullet(RenderWindow& window);
+	Sprite getSprite();
+	void collision();
 
 	bool outOfBounds();
 

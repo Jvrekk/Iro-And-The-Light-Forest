@@ -24,11 +24,11 @@ void Player::drawPlayer(RenderWindow &window) {
 
 	enum Directions { RIGHT, LEFT };
 	sf::Vector2i dir(0, RIGHT);
-	if (MouseDirections::getRotation(window, sPlayer)< 180){
+	if (MouseDirections::getRotation(window, sPlayer)> 180){
 		
 		sPlayer.setTextureRect(sf::IntRect(dir.x * sPlayer.getGlobalBounds().width, LEFT * sPlayer.getGlobalBounds().height, 128, 128));
 	}
-	else if(MouseDirections::getRotation(window, sPlayer) > 180){
+	else if(MouseDirections::getRotation(window, sPlayer) < 180){
 		sPlayer.setTextureRect(sf::IntRect(dir.x * sPlayer.getGlobalBounds().width, RIGHT * sPlayer.getGlobalBounds().height, 128, 128));
 	}
 		

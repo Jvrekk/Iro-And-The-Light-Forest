@@ -26,16 +26,17 @@ int main() {
 	RenderWindow window;
 	Vector2i centerWindow((VideoMode::getDesktopMode().width / 2) - 755, (VideoMode::getDesktopMode().height / 2) - 390);
 
-	window.create(VideoMode(1920, 1080), "Iro And The Light Forest", Style::Titlebar | Style::Close);
+	window.create(VideoMode(1756, 672), "Iro And The Light Forest", Style::Titlebar | Style::Close);
 	window.setPosition(centerWindow);
-	window.setFramerateLimit(450);
+	window.setFramerateLimit(60);
 	
 	window.setKeyRepeatEnabled(true);
 
-	vector<Bullet> bVector;
+	//Array of bullets
+	int counter = 0;
+	const int magazin = 100;
+	Bullet bulletArr[magazin];
 
-	//list
-	list<Bullet> bulletList;
     Texture bulletTexture;
 
 	if (bulletTexture.loadFromFile("images/bullet.png")) {
@@ -58,44 +59,14 @@ int main() {
 
 		
 		if (Mouse::isButtonPressed(Mouse::Left)) {
-			bulletList.push_front(Bullet(player.getSprite().getPosition().x, player.getSprite().getPosition().y, md.mouseDirections(window, player.getSprite()),&bulletTexture));	
+			bulletArr[counter].setter(player.getSprite().getPosition().x, player.getSprite().getPosition().y, md.mouseDirections(window, player.getSprite()), &bulletTexture, md.getRotation(window, player.getSprite()));
+			counter++;
+			if (counter >= 100)
+				counter = 0;
 		}
 		
-
-	/*------------------------------------------------------Vector---------------------------------------------------------------------------------------
-		if (Mouse::isButtonPressed(Mouse::Left)) {
-
-			bVector.push_back(Bullet(player.getSprite().getPosition().x, player.getSprite().getPosition().y, md.mouseDirections(window, player.getSprite())));
-
-			//cout << "bullet z prest" << endl;
-			//	cout << "BULLET #" <<  id++ << endl;
-		}
-	*///------------------------------------------------------Vector-------------------------------------------------------------------------------------- -
-
-
 		
-		if (!(bulletList.empty())) {
-			for (std::list<Bullet>::iterator it = bulletList.begin(); it != bulletList.end(); ++it) {
-				{
-					it->moveBullet(window);
-				}
-			}
-		}
-		
-			
-			
-			/*------------------------------------------------------Vector---------------------------------------------------------------------------------------
-			if (!(bVector.empty())) {
-				for (int i = 0; i < bVector.size(); i++)
-				{
-					bVector.at(i).moveBullet(window);
-
-					//cout << "bullet z z move" << endl;;
-					//	cout << "move " << endl;
-				}
-			}
-			*///------------------------------------------------------Vector---------------------------------------------------------------------------------------
-
+				
 
 			//Event Loop:
 			Event Event;
@@ -112,6 +83,22 @@ int main() {
 			player.considerGravity();
 			entrance.draw(window);
 			entrance2.draw(window);
+
+			//KOLIZJE
+			for (int i = 0; i < magazin; i++) {
+				if (PixelPerfectTest(bulletArr[i].getSprite(), entrance.getGroundSprite())) {
+					bulletArr[i].collision();
+				}
+				if (PixelPerfectTest(bulletArr[i].getSprite(), entrance2.getGroundSprite())) {
+					bulletArr[i].collision();
+				}
+				if (PixelPerfectTest(bulletArr[i].getSprite(), entrance.getUpperGroundSprite())) {
+					bulletArr[i].collision();
+				}
+				if (PixelPerfectTest(bulletArr[i].getSprite(), entrance2.getUpperGroundSprite())) {
+					bulletArr[i].collision();
+				}
+			}
 			if (PixelPerfectTest(player.getSprite(), entrance.getGroundSprite())) {
 				player.collision();
 			}
@@ -126,32 +113,11 @@ int main() {
 			}
 			player.drawPlayer(window);
 
-			
-			if (!(bulletList.empty())) {
-				for (std::list<Bullet>::iterator it = bulletList.begin(); it != bulletList.end(); ++it) {
-						it->drawBullet(window);
-						/* ------------------------> wypierdolka
-						if (it->outOfBounds()) {
-							bulletList.pop_back();
-						}
-						*///-------------------------------------|
-				}
+			for (int i = 0; i < magazin; i++) {
+				bulletArr[i].drawBullet(window);
 			}
 			
-		/*------------------------------------------------------Vector---------------------------------------------------------------------------------------
-			if (!(bVector.empty())) {
-				for (int i = 0; i < bVector.size(); i++)
-				{
-					bVector.at(i).drawBullet(window);
-					if (bVector.at(i).outOfBounds()) {
-						bVector.pop_back();
-					}
-				}
-			}
-		*///------------------------------------------------------Vector---------------------------------------------------------------------------------------
-
-
-
+		
 			window.display();
 			window.clear();
 		}

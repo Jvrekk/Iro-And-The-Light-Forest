@@ -14,11 +14,11 @@ public:
 
 private:
 	bool jumpAble;
-	float flySpeed = 3;
-	float fuel = 500;
-	float fuelMax = 500;
-	float fuelLoss = 0.5;
-	float fuelUsage = 0.2;
+	float flySpeed = 15;
+	float fuel = 150;
+	float fuelMax = 150;
+	float fuelLoss = 2;
+	float fuelUsage = 1;
 };
 
 #endif // !IRO_IN_THE_DARK_CHAMBER_JETPACK_H

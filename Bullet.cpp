@@ -10,22 +10,38 @@
 
 using namespace sf;
 using namespace std;
-
-Bullet::Bullet(float x,float y, Vector2f target, Texture *tex) {
+Bullet::Bullet() {};
+Bullet::Bullet(float x,float y, Vector2f target, Texture *tex, float direction) {
 
 	bTarget = target;
 
 	sBullet.setPosition(x,y);
-	
 	sBullet.setTexture(*tex);
+	sBullet.setRotation(direction);
+}
+void Bullet::setter(float x, float y, Vector2f target, Texture *tex, float direction) {
+
+	bTarget = target;
+
+	sBullet.setPosition(x, y);
+	sBullet.setTexture(*tex);
+	sBullet.setRotation(direction);
 }
 
 void Bullet::drawBullet(RenderWindow& window) {
+	Bullet::moveBullet(window);
 	window.draw(sBullet);
 }
 
 void Bullet::moveBullet(RenderWindow & win) {
 		sBullet.move(bTarget);
+}
+sf::Sprite Bullet::getSprite() {
+	return this->sBullet;
+}
+void Bullet::collision() {
+	this->sBullet.setPosition(-200, -200);
+	bTarget = Vector2f(0,0);
 }
 
 //TODO
