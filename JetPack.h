@@ -10,7 +10,9 @@ using namespace std;
 
 class JetPack {
 public:
+	JetPack();
 	void Fly(Sprite &Obj);
+	void draw(RenderWindow &window);
 
 private:
 	bool jumpAble;
@@ -19,6 +21,8 @@ private:
 	float fuelMax = 150;
 	float fuelLoss = 2;
 	float fuelUsage = 1;
+	sf::RectangleShape fuelMaxBar;
+	sf::RectangleShape fuelActual;
 };
 
 #endif // !IRO_IN_THE_DARK_CHAMBER_JETPACK_H

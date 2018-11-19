@@ -24,6 +24,7 @@ public:
 	void collision();
 	void jetpack();
 	Sprite getSprite();
+
 	
 
 
@@ -32,8 +33,6 @@ private:
 	float moveSpeed = 7;
 	sf::Sprite sPlayer;
 	sf::Texture tPlayer;
-
-	
-
+	sf::View followPlayer;
 };
 #endif // !IRO_IN_THE_DARK_CHAMBER_PLAYER_H

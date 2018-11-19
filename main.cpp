@@ -9,6 +9,7 @@
 #include "Collision.h"
 #include "MouseDirections.h"
 #include "entrance.h"
+#include "Settings.h"
 #include <vector>
 
 
@@ -26,9 +27,9 @@ int main() {
 	RenderWindow window;
 	Vector2i centerWindow((VideoMode::getDesktopMode().width / 2) - 755, (VideoMode::getDesktopMode().height / 2) - 390);
 
-	window.create(VideoMode(1756, 672), "Iro And The Light Forest", Style::Titlebar | Style::Close);
+	window.create(VideoMode(Settings::windowWidth, Settings::windowHeight), "Iro And The Light Forest", Style::Titlebar | Style::Close);
 	window.setPosition(centerWindow);
-	window.setFramerateLimit(60);
+	window.setFramerateLimit(Settings::FPS);
 	
 	window.setKeyRepeatEnabled(true);
 

@@ -7,12 +7,9 @@
 using namespace sf;
 using namespace std;
 
-	//TODO ENCHANCED GRAVITY EXPERIENCE VIA VELOCITY
-	// template <class T> void Gravity::considerGravity(T &Obj) {
-	//	Obj.move(0, gSpeed);
-	//};
 
 void Gravity::considerGravity(Sprite &Obj) {
+	//gSpeed += gVelocity;
 	Obj.move(0, gSpeed);
 };
 
