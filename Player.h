@@ -19,14 +19,15 @@ public:
 	Player();
 	
 	void drawPlayer(RenderWindow &window);
-	void movePlayer();
+	void movePlayer(RenderWindow &window);
 	void considerGravity();
 	void collision();
 	void jetpack();
 	Sprite getSprite();
-
+	void die();
 	
-
+	
+	int hp = 10;
 
 
 private:

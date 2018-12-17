@@ -15,7 +15,7 @@ public:
 
 private:
 	float gSpeed = Settings::Gravity;
-	float gSpeedMin = 7;
+	float gSpeedMin = 4;
 	float gVelocity = 0.2;
 };
 

@@ -7,9 +7,7 @@
 using namespace sf;
 using namespace std;
 
-
 void Gravity::considerGravity(Sprite &Obj) {
-	//gSpeed += gVelocity;
 	Obj.move(0, gSpeed);
 };
 

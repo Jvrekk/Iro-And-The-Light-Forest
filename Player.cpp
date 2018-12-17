@@ -11,6 +11,9 @@
 using namespace sf;
 using namespace std;
 
+enum Directions { RIGHT, LEFT };
+sf::Vector2i dir(0, RIGHT);
+bool pos;
 
 Player::Player() {
 	if (!tPlayer.loadFromFile("images/playerScale.png"))
@@ -18,6 +21,7 @@ Player::Player() {
 		cout << "load player.png failed";
 		EXIT_FAILURE;
 	}
+
 	sPlayer.setPosition(sf::Vector2f(Settings::windowWidth / 2, Settings::windowHeight / 2));
 	sPlayer.setTexture(tPlayer);
 	followPlayer.setCenter(Settings::windowWidth / 2, Settings::windowHeight / 2);
@@ -26,21 +30,21 @@ Player::Player() {
 
 void Player::drawPlayer(RenderWindow &window) {
 
-	enum Directions { RIGHT, LEFT };
-	sf::Vector2i dir(0, RIGHT);
+
 	if (MouseDirections::getRotation(window, sPlayer)> 180){
-		
 		sPlayer.setTextureRect(sf::IntRect(dir.x * sPlayer.getGlobalBounds().width, LEFT * sPlayer.getGlobalBounds().height, 128, 128));
+		pos = false;
 	}
 	else if(MouseDirections::getRotation(window, sPlayer) < 180){
 		sPlayer.setTextureRect(sf::IntRect(dir.x * sPlayer.getGlobalBounds().width, RIGHT * sPlayer.getGlobalBounds().height, 128, 128));
+		pos = true;
 	}
 		JetPack::draw(window);
 		window.draw(sPlayer);
 		window.setView(followPlayer);
 	}
 
-	void Player::movePlayer() {
+	void Player::movePlayer(RenderWindow &window) {
 
 		jetpack();
 		//followPlayer.move(sPlayer.getPosition().x, sPlayer.getPosition().y);
@@ -53,6 +57,23 @@ void Player::drawPlayer(RenderWindow &window) {
 			sPlayer.move(moveSpeed, 0);
 			followPlayer.move(moveSpeed, 0);
 		}
+
+		 if (Keyboard::isKeyPressed(Keyboard::Space)) {
+			 if (MouseDirections::getRotation(window, sPlayer) < 180) {
+				 sPlayer.setPosition(sPlayer.getPosition().x + 60, sPlayer.getPosition().y);
+				 followPlayer.move(moveSpeed + 60, 0);
+			 }
+			 if ((MouseDirections::getRotation(window, sPlayer) > 180))
+			 {
+				 sPlayer.setPosition(sPlayer.getPosition().x - 60, sPlayer.getPosition().y);
+				 followPlayer.move(moveSpeed - 60, 0);
+			 }
+		}
+
+	}
+
+	void Player::die() {
+		sPlayer.setPosition(-19999, -19999);
 	}
 
 

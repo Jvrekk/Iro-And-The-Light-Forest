@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <SFML/Graphics.hpp>
 #include "Player.h"
+#include "Enemy.h"
 #include <list>
 #include "Gravity.h"
 #include "Box.h"
@@ -46,6 +47,7 @@ int main() {
 
 	MouseDirections md;
 	Player player;
+	Enemy enemy;
 
 
 	Entrance entrance, entrance2;
@@ -56,8 +58,8 @@ int main() {
 	//Main Loop:
 	while (window.isOpen()) {
 
-		player.movePlayer();
-
+		player.movePlayer(window);
+		enemy.moveEnemy();
 		
 		if (Mouse::isButtonPressed(Mouse::Left)) {
 			bulletArr[counter].setter(player.getSprite().getPosition().x, player.getSprite().getPosition().y, md.mouseDirections(window, player.getSprite()), &bulletTexture, md.getRotation(window, player.getSprite()));
@@ -82,6 +84,9 @@ int main() {
 			}
 
 			player.considerGravity();
+			enemy.considerGravity();
+			
+
 			entrance.draw(window);
 			entrance2.draw(window);
 
@@ -99,7 +104,19 @@ int main() {
 				if (PixelPerfectTest(bulletArr[i].getSprite(), entrance2.getUpperGroundSprite())) {
 					bulletArr[i].collision();
 				}
+				if (PixelPerfectTest(bulletArr[i].getSprite(), enemy.getSprite())) {
+					bulletArr[i].collision();
+					enemy.hp -= 1;
+					if (enemy.hp == 0) {
+						enemy.die();
+					}
+				}
 			}
+
+			if (PixelPerfectTest(player.getSprite(), enemy.getSprite())) {
+				player.die();
+			}
+
 			if (PixelPerfectTest(player.getSprite(), entrance.getGroundSprite())) {
 				player.collision();
 			}
@@ -112,7 +129,24 @@ int main() {
 			if (PixelPerfectTest(player.getSprite(), entrance2.getUpperGroundSprite())) {
 				player.collision();
 			}
+
+			if (PixelPerfectTest(enemy.getSprite(), entrance.getGroundSprite())) {
+				enemy.collision();
+			}	
+			if (PixelPerfectTest(enemy.getSprite(), entrance2.getGroundSprite())) {
+				enemy.collision();
+			}
+			if (PixelPerfectTest(enemy.getSprite(), entrance.getGroundSprite())) {
+				enemy.collision();
+			}
+			if (PixelPerfectTest(enemy.getSprite(), entrance2.getGroundSprite())) {
+				enemy.collision();
+			}
+
+
+
 			player.drawPlayer(window);
+			enemy.drawEnemy(window);
 
 			for (int i = 0; i < magazin; i++) {
 				bulletArr[i].drawBullet(window);
