@@ -20,7 +20,7 @@ public:
 	Enemy();
 
 	void drawEnemy(RenderWindow &window);
-	void moveEnemy(float deltaTime);
+	void moveEnemy(float deltaTime, sf::Sprite player);
 	
 	void considerGravity();
 	void collision();
@@ -28,7 +28,8 @@ public:
 	Sprite getSprite();
 	void considerCollisions(Enemy& e, Entrance& env, Entrance& env2);
 
-	int hp = 20;
+	int hp = 100;
+	int hpMax = 100;
 
 private:
 	float moveSpeed = 7;
@@ -40,6 +41,9 @@ private:
 
 	sf::Sprite sEnemy;
 	sf::Texture tEnemy;
+
+	sf::RectangleShape hpMaxBar;
+	sf::RectangleShape hpActBar;
 
 };
 #endif // !IRO_IN_THE_DARK_CHAMBER_ENEMY_H

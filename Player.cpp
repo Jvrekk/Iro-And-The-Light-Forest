@@ -51,7 +51,7 @@ void Player::drawPlayer(RenderWindow &window) {
 
 
 	drawPlayerHp(window);
-	JetPack::draw(window);
+	JetPack::draw(window,this->xmov);
 	window.draw(sPlayer);
 	window.setView(followPlayer);
 }
@@ -60,10 +60,10 @@ void Player::drawPlayer(RenderWindow &window) {
 void Player::drawPlayerHp(RenderWindow &window) {
 
 	hpMaxBar.setSize(Vector2f(hpMax * 2, 40));
-	hpMaxBar.setPosition(Vector2f(360, 620));
+	hpMaxBar.setPosition(Vector2f(360+this->xmov, 620));
 	hpMaxBar.setFillColor(sf::Color(135, 135, 135));
 	hpActBar.setSize(Vector2f(hp * 2, 40));
-	hpActBar.setPosition(Vector2f(360, 620));
+	hpActBar.setPosition(Vector2f(360 + this->xmov, 620));
 	hpActBar.setFillColor(sf::Color(0, 150, 0));
 	
 
@@ -79,11 +79,17 @@ void Player::Update(float deltaTime, RenderWindow &window) {
 
 	sf::Vector2f movement(0.0f, 0.0f);
 
-	if (Keyboard::isKeyPressed(Keyboard::A)) 
-		movement.x -= moveSpeed * deltaTime *100;
+	if (Keyboard::isKeyPressed(Keyboard::A)) {
+		movement.x -= moveSpeed * deltaTime * 100;
+		this->xmov -= moveSpeed * deltaTime * 100;
+	}
+		
 
-	if (Keyboard::isKeyPressed(Keyboard::D)) 
+	if (Keyboard::isKeyPressed(Keyboard::D)) {
 		movement.x += moveSpeed * deltaTime * 100;
+		this->xmov += moveSpeed * deltaTime * 100;
+	}
+		
 
 	if (movement.x == 0.0f){
 		row = 0;
@@ -129,17 +135,7 @@ void Player::movePlayer(RenderWindow &window) {
 		followPlayer.move(moveSpeed, 0);
 	}
 
-	if (Keyboard::isKeyPressed(Keyboard::Space)) {
-		if (MouseDirections::getRotation(window, sPlayer) < 180) {
-			sPlayer.setPosition(sPlayer.getPosition().x + 60, sPlayer.getPosition().y);
-			followPlayer.move(moveSpeed + 60, 0);
-		}
-		if ((MouseDirections::getRotation(window, sPlayer) > 180))
-		{
-			sPlayer.setPosition(sPlayer.getPosition().x - 60, sPlayer.getPosition().y);
-			followPlayer.move(moveSpeed - 60, 0);
-		}
-	}
+
 
 }
 

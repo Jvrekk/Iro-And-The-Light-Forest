@@ -89,8 +89,8 @@ int main() {
 			//	player.movePlayer(window);
 
 			if (Mouse::isButtonPressed(Mouse::Left)) {
-				bulletArr[counter].setter(player.getSprite().getPosition().x, player.getSprite().getPosition().y, md.mouseDirections(window, player.getSprite()), &bulletTexture, md.getRotation(window, player.getSprite()));
-				counter++;
+						bulletArr[counter].setter(player.getSprite().getPosition().x, player.getSprite().getPosition().y, md.mouseDirections(window, player.getSprite(),player.xmov), &bulletTexture, md.getRotation(window, player.getSprite(),player.xmov));
+					counter++;
 				if (counter >= 100)
 					counter = 0;
 			}
@@ -148,7 +148,7 @@ int main() {
 			enemy.considerCollisions(enemy, entrance, entrance2);
 
 			player.Update(deltaTime, window);
-			enemy.moveEnemy(deltaTime);
+			enemy.moveEnemy(deltaTime,player.getSprite());
 
 			player.considerCollisions(player, entrance, entrance2);
 

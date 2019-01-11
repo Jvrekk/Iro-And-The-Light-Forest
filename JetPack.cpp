@@ -34,13 +34,13 @@ void JetPack::Fly(Sprite &Obj) {
 	}
 }
 
-void JetPack::draw(RenderWindow &window) {
+void JetPack::draw(RenderWindow &window,float xmove) {
 
 	fuelMaxBar.setSize(Vector2f(fuelMax * 2, 40));
-	fuelMaxBar.setPosition(Vector2f(30, 620));
+	fuelMaxBar.setPosition(Vector2f(30+xmove, 620));
 	fuelMaxBar.setFillColor(sf::Color(135, 135, 135));
 	fuelActual.setSize(Vector2f(fuel * 2, 40));
-	fuelActual.setPosition(Vector2f(30, 620));
+	fuelActual.setPosition(Vector2f(30 + xmove, 620));
 	fuelActual.setFillColor(sf::Color(150, 0, 0));
 	fuelActual.setSize(Vector2f(fuel*2, 40));
 

@@ -12,7 +12,7 @@ class JetPack {
 public:
 	JetPack();
 	void Fly(Sprite &Obj);
-	void draw(RenderWindow &window);
+	void draw(RenderWindow &window,float xmove);
 
 private:
 	bool jumpAble;

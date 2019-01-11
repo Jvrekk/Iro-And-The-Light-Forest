@@ -12,15 +12,14 @@ using namespace sf;
 using namespace std;
 
 
-Vector2f MouseDirections::mouseDirections(RenderWindow &window, Sprite player) {
+Vector2f MouseDirections::mouseDirections(RenderWindow &window, Sprite player,float xmove) {
 
 
 	centrePlayerPos = Vector2f(player.getPosition().x + (player.getGlobalBounds().width / 2), player.getPosition().y + (player.getGlobalBounds().height / 2)); // oblicza srodek playera
-	mCurrentPos = Vector2f(Mouse::getPosition(window));	 // zwraca pozycje myszki
+	mCurrentPos = Vector2f(Mouse::getPosition(window).x+xmove, Mouse::getPosition(window).y);	 // zwraca pozycje myszki
 	mTargetDir = mCurrentPos - centrePlayerPos;		    // oblicza pozycje myszki od postaci nie od poczatku okna 
-
 	mTargetDirCalc = mTargetDir / sqrt(pow(mTargetDir.x, 2) + pow(mTargetDir.y, 2)); 
-	//cout << mTargetDirCalc.x << ',' << mTargetDirCalc.y << endl;
+	cout << mTargetDirCalc.x << ',' << mTargetDirCalc.y << endl;
 	mTargetDirCalc.x *= 40;
 	mTargetDirCalc.y *= 40;
 	return mTargetDirCalc;
@@ -29,11 +28,11 @@ Vector2f MouseDirections::mouseDirections(RenderWindow &window, Sprite player) {
 
 
 
-float MouseDirections::getRotation(RenderWindow &window, Sprite player) {
+float MouseDirections::getRotation(RenderWindow &window, Sprite player, float xmove) {
 
 
 	centrePlayerPos = Vector2f(player.getPosition().x + (player.getGlobalBounds().width / 2), player.getPosition().y + (player.getGlobalBounds().height / 2)); // oblicza srodek playera
-	mCurrentPos = Vector2f(Mouse::getPosition(window));	 // zwraca pozycje myszki
+	mCurrentPos = Vector2f(Mouse::getPosition(window).x + xmove, Mouse::getPosition(window).y);	 // zwraca pozycje myszki
 	mTargetDir = mCurrentPos - centrePlayerPos;         // oblicza pozycje myszki od postaci nie od poczatku okna 
 	
 

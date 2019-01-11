@@ -17,9 +17,9 @@ class MouseDirections{
 
 public:
 
-	Vector2f mouseDirections(RenderWindow &window, Sprite player);
+	Vector2f mouseDirections(RenderWindow &window, Sprite player,float xmove);
 
-	float getRotation(RenderWindow &window, Sprite player);
+	float getRotation(RenderWindow &window, Sprite player,float xmove);
 
 	
 	

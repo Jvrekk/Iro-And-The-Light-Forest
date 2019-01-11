@@ -35,14 +35,15 @@ public:
 	void setHp(int hp);
 	int getHp();
 	
-
+	float xmov = 0;
 private:
 	float moveSpeed = 7;
 	Animations animation;
 	sf::RectangleShape body;
 	bool faceRight;
 	unsigned int row; 
-
+	
+	float ymov;
 	int hp = 150;
 	int hpMax = 150;
 

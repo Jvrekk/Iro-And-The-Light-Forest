@@ -23,13 +23,32 @@ Enemy::Enemy(sf::Texture * texture, sf::Vector2u imageCount, float switchTime) :
 
 void Enemy::drawEnemy(RenderWindow &window) {
 	window.draw(sEnemy);
+	hpMaxBar.setSize(Vector2f(hpMax/2, 8));
+	hpMaxBar.setPosition(Vector2f(this->sEnemy.getPosition()));
+	hpMaxBar.setFillColor(sf::Color(135, 135, 135));
+	hpActBar.setSize(Vector2f(hp/2, 8));
+	hpActBar.setPosition(Vector2f(this->sEnemy.getPosition()));
+	hpActBar.setFillColor(sf::Color(0, 150, 0));
+	window.draw(hpMaxBar);
+	window.draw(hpActBar);
 }
 
-void Enemy::moveEnemy(float deltaTime) {
+void Enemy::moveEnemy(float deltaTime, sf::Sprite player) {
 
 	sf::Vector2f movement(0.0f, 0.0f);
+	float randomMove = moveSpeed * deltaTime * 100;
+	if (player.getPosition().y - this->sEnemy.getPosition().y >=20 ) {
+		if (player.getPosition().x>this->sEnemy.getPosition().x)
+			movement.x += moveSpeed * deltaTime * 100;
+			randomMove = moveSpeed * deltaTime * 100;
+		if (player.getPosition().x<this->sEnemy.getPosition().x)
+			movement.x -= moveSpeed * deltaTime * 100;
+			randomMove = moveSpeed * deltaTime * -100;
+	}	
+	else {
+		movement.x += randomMove;
+	}
 
-		movement.x -= moveSpeed * deltaTime * 100;
 		row = 0;
 
 	animation.Update(row, deltaTime, faceRight);
