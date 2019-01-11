@@ -8,6 +8,7 @@
 #include "Gravity.h"
 #include "JetPack.h"
 #include "Entrance.h"
+#include "Animations.h"
 
 using namespace sf;
 using namespace std;
@@ -15,11 +16,12 @@ using namespace std;
 class Enemy : public Gravity {
 public:
 
-
+	Enemy(sf::Texture* texture, sf::Vector2u imageCount, float switchTime);
 	Enemy();
 
 	void drawEnemy(RenderWindow &window);
-	void moveEnemy();
+	void moveEnemy(float deltaTime);
+	
 	void considerGravity();
 	void collision();
 	void die();
@@ -29,7 +31,13 @@ public:
 	int hp = 20;
 
 private:
-	float moveSpeed =7;
+	float moveSpeed = 7;
+	Animations animation;
+	sf::RectangleShape body;
+	bool faceRight;
+	unsigned int row;
+
+
 	sf::Sprite sEnemy;
 	sf::Texture tEnemy;
 

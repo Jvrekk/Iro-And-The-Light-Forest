@@ -45,6 +45,7 @@ int main() {
 	Menu menu;
 	MouseDirections md;
 	Texture tPlayer;
+
 	Settings settings;
 
 	if (!tPlayer.loadFromFile("images/player.png"))
@@ -54,8 +55,14 @@ int main() {
 	}
 	//sf::Texture* texture,sf::Vector2u imageCount, float switchTime) : animation(texture, imageCount, switchTime){
 	Player player(&tPlayer,sf::Vector2u(4,3), 0.3f);
-
-	Enemy enemy;
+	
+	Texture tEnemy;
+	if (!tEnemy.loadFromFile("images/enemy.png"))
+	{
+		cout << "load enemy.png failed";
+		EXIT_FAILURE;
+	}
+	Enemy enemy(&tEnemy, sf::Vector2u(3, 1), 0.3f);;
 
 	float deltaTime = 0.0;
 	sf::Clock clock;
@@ -80,7 +87,6 @@ int main() {
 			deltaTime = clock.restart().asSeconds();
 			//
 			//	player.movePlayer(window);
-			enemy.moveEnemy();
 
 			if (Mouse::isButtonPressed(Mouse::Left)) {
 				bulletArr[counter].setter(player.getSprite().getPosition().x, player.getSprite().getPosition().y, md.mouseDirections(window, player.getSprite()), &bulletTexture, md.getRotation(window, player.getSprite()));
@@ -142,6 +148,8 @@ int main() {
 			enemy.considerCollisions(enemy, entrance, entrance2);
 
 			player.Update(deltaTime, window);
+			enemy.moveEnemy(deltaTime);
+
 			player.considerCollisions(player, entrance, entrance2);
 
 			player.drawPlayer(window);
@@ -151,6 +159,7 @@ int main() {
 			for (int i = 0; i < magazin; i++) {
 				bulletArr[i].drawBullet(window);
 			}
+
 			//cout << "size "<<window.getSize().x << "     " << window.getSize().y << endl;
 			cout << "position " << window.getPosition().x << "     " << window.getPosition().y << endl;
 			window.display();

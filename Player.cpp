@@ -25,8 +25,6 @@ Player::Player()
 
 Player::Player(sf::Texture* texture,sf::Vector2u imageCount, float switchTime) : animation(texture, imageCount, switchTime){
 	
-	faceRight = true;
-
 	row = 0;
 	faceRight = true;
 	// sPlayer.setOrigin(sf::Vector2f(256.0f, 256.0f));
@@ -105,7 +103,6 @@ void Player::Update(float deltaTime, RenderWindow &window) {
 	sPlayer.setTextureRect(animation.uvRect);
 	sPlayer.move(movement);
 	followPlayer.move(movement);
-	
 }
 
 void Player::setHp(int hp)

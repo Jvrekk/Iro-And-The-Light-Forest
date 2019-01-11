@@ -13,23 +13,29 @@ using namespace sf;
 using namespace std;
 using namespace Collision;
 
-Enemy::Enemy() {
-	if (!tEnemy.loadFromFile("images/enemy.png"))
-	{
-		cout << "load enemy.png failed";
-		EXIT_FAILURE;
-	}
+Enemy::Enemy(sf::Texture * texture, sf::Vector2u imageCount, float switchTime) : animation(texture, imageCount, switchTime) {
 
-	sEnemy.setPosition(sf::Vector2f(Settings::windowWidth + 600 , -1000));
-	sEnemy.setTexture(tEnemy);
+	row = 0;
+	faceRight = false;
+	sEnemy.setPosition(sf::Vector2f(Settings::windowWidth + 600, -300));
+	sEnemy.setTexture(*texture);
 }
 
 void Enemy::drawEnemy(RenderWindow &window) {
 	window.draw(sEnemy);
 }
 
-void Enemy::moveEnemy() {
-	sEnemy.move(-moveSpeed/2, 0);
+void Enemy::moveEnemy(float deltaTime) {
+
+	sf::Vector2f movement(0.0f, 0.0f);
+
+		movement.x -= moveSpeed * deltaTime * 100;
+		row = 0;
+
+	animation.Update(row, deltaTime, faceRight);
+	sEnemy.setTextureRect(animation.uvRect);
+	movement.x /= 3;
+	sEnemy.move(movement);
 }
 
 
