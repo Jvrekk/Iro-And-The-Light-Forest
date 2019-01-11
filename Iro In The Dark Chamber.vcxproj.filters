@@ -25,6 +25,12 @@
     <Filter Include="Resource Files\map">
       <UniqueIdentifier>{e4126e79-7bd3-46a1-bc3c-272ad08ec4b4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Menu">
+      <UniqueIdentifier>{3b2e0c10-84d4-4dcc-a9ef-f0a5425ccf80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Menu">
+      <UniqueIdentifier>{b433fa98-81c9-4fb1-bd08-dde21820ee9f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -63,6 +69,9 @@
     <ClCompile Include="Box.cpp">
       <Filter>Resource Files\map</Filter>
     </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Resource Files\Menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gravity.h">
@@ -80,9 +89,6 @@
     <ClInclude Include="Player.h">
       <Filter>Header Files\Player</Filter>
     </ClInclude>
-    <ClInclude Include="JetPack.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="entrance.h">
       <Filter>Header Files\map</Filter>
     </ClInclude>
@@ -97,6 +103,12 @@
     </ClInclude>
     <ClInclude Include="Animations.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="JetPack.h">
+      <Filter>Header Files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Header Files\Menu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

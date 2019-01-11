@@ -12,6 +12,7 @@
 #include "entrance.h"
 #include "Settings.h"
 #include "Animations.h"
+#include "Menu.h"
 #include <vector>
 
 using namespace sf;
@@ -41,9 +42,10 @@ int main() {
 	if (!bulletTexture.loadFromFile("images/bullet.png")) {
 		cout << "bullet.png load failed";
 	}
-
+	Menu menu;
 	MouseDirections md;
 	Texture tPlayer;
+	Settings settings;
 
 	if (!tPlayer.loadFromFile("images/player.png"))
 	{
@@ -63,21 +65,29 @@ int main() {
 	entrance.setPosition(0, 0);
 	entrance2.setPosition(1056, 0);
 
+	
 	//Main Loop:
-	while (window.isOpen()) {
+	while (window.isOpen() && menu.isRuning) {
 
-		//
-		deltaTime = clock.restart().asSeconds();
-		//
-	//	player.movePlayer(window);
-		enemy.moveEnemy();
-		
-		if (Mouse::isButtonPressed(Mouse::Left)) {
-			bulletArr[counter].setter(player.getSprite().getPosition().x, player.getSprite().getPosition().y, md.mouseDirections(window, player.getSprite()), &bulletTexture, md.getRotation(window, player.getSprite()));
-			counter++;
-			if (counter >= 100)
-				counter = 0;
+		if (menu.startingPage) {
+			menu.drawStartingPage(window);
 		}
+		if (menu.menu) {
+			menu.drawMenu(window);
+		}
+		if (menu.play) {
+			//
+			deltaTime = clock.restart().asSeconds();
+			//
+			//	player.movePlayer(window);
+			enemy.moveEnemy();
+
+			if (Mouse::isButtonPressed(Mouse::Left)) {
+				bulletArr[counter].setter(player.getSprite().getPosition().x, player.getSprite().getPosition().y, md.mouseDirections(window, player.getSprite()), &bulletTexture, md.getRotation(window, player.getSprite()));
+				counter++;
+				if (counter >= 100)
+					counter = 0;
+			}
 
 			//Event Loop:
 			Event Event;
@@ -93,7 +103,7 @@ int main() {
 
 			player.considerGravity();
 			enemy.considerGravity();
-			
+
 			entrance.draw(window);
 			entrance2.draw(window);
 
@@ -121,7 +131,12 @@ int main() {
 			}
 
 			if (PixelPerfectTest(player.getSprite(), enemy.getSprite())) {
-				player.die();
+				int i = player.getHp();
+				i--;
+				player.setHp(i);
+				if (player.getHp() < 0) {
+					player.die(window);
+				}
 			}
 
 			enemy.considerCollisions(enemy, entrance, entrance2);
@@ -137,8 +152,15 @@ int main() {
 				bulletArr[i].drawBullet(window);
 			}
 			//cout << "size "<<window.getSize().x << "     " << window.getSize().y << endl;
-			cout << "position "<<window.getPosition().x << "     " << window.getPosition().y << endl;
+			cout << "position " << window.getPosition().x << "     " << window.getPosition().y << endl;
 			window.display();
 			window.clear();
+
+			if (Keyboard::isKeyPressed(Keyboard::Escape)) {
+				menu.play = false;
+				menu.menu = true;
+			}
+		}
+		
 		}
 	}

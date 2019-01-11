@@ -50,12 +50,30 @@ void Player::drawPlayer(RenderWindow &window) {
 		pos = true;
 	}
 	*/
+
+
+	drawPlayerHp(window);
 	JetPack::draw(window);
 	window.draw(sPlayer);
 	window.setView(followPlayer);
 }
 
 
+void Player::drawPlayerHp(RenderWindow &window) {
+
+	hpMaxBar.setSize(Vector2f(hpMax * 2, 40));
+	hpMaxBar.setPosition(Vector2f(360, 620));
+	hpMaxBar.setFillColor(sf::Color(135, 135, 135));
+	hpActBar.setSize(Vector2f(hp * 2, 40));
+	hpActBar.setPosition(Vector2f(360, 620));
+	hpActBar.setFillColor(sf::Color(0, 150, 0));
+	
+
+
+	hpActBar.setSize(Vector2f(hp * 2, 40));
+	window.draw(hpMaxBar);
+	window.draw(hpActBar);
+}
 
 void Player::Update(float deltaTime, RenderWindow &window) {
 	
@@ -88,6 +106,16 @@ void Player::Update(float deltaTime, RenderWindow &window) {
 	sPlayer.move(movement);
 	followPlayer.move(movement);
 	
+}
+
+void Player::setHp(int hp)
+{
+	this->hp = hp;
+}
+
+int Player::getHp()
+{
+	return this->hp;
 }
 
 void Player::movePlayer(RenderWindow &window) {
@@ -134,10 +162,8 @@ void Player::considerCollisions(Player& pla, Entrance& env, Entrance& env2)
 	}
 }
 
-
-
-void Player::die() {
-	sPlayer.setPosition(-19999, -19999);
+void Player::die(RenderWindow & window) {
+	sPlayer.setPosition(-19999, -19999);	
 }
 
 void Player::jetpack() {
@@ -154,3 +180,4 @@ void Player::collision() {
 sf::Sprite Player::getSprite() {
 	return this->sPlayer;
 }
+

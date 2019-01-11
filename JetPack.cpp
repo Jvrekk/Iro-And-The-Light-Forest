@@ -7,12 +7,6 @@
 using namespace sf;
 using namespace std;
 JetPack::JetPack() {
-	fuelMaxBar.setSize(Vector2f(fuelMax*2, 40));
-	fuelMaxBar.setPosition(Vector2f(30,620));
-	fuelMaxBar.setFillColor(sf::Color(135, 135, 135));
-	fuelActual.setSize(Vector2f(fuel*2, 40));
-	fuelActual.setPosition(Vector2f(30, 620));
-	fuelActual.setFillColor(sf::Color(150, 0, 0));
 
 }
 void JetPack::Fly(Sprite &Obj) {
@@ -39,8 +33,17 @@ void JetPack::Fly(Sprite &Obj) {
 		fuelLoss = fuelUsage;
 	}
 }
+
 void JetPack::draw(RenderWindow &window) {
+
+	fuelMaxBar.setSize(Vector2f(fuelMax * 2, 40));
+	fuelMaxBar.setPosition(Vector2f(30, 620));
+	fuelMaxBar.setFillColor(sf::Color(135, 135, 135));
+	fuelActual.setSize(Vector2f(fuel * 2, 40));
+	fuelActual.setPosition(Vector2f(30, 620));
+	fuelActual.setFillColor(sf::Color(150, 0, 0));
 	fuelActual.setSize(Vector2f(fuel*2, 40));
+
 	window.draw(fuelMaxBar);
 	window.draw(fuelActual);
 }

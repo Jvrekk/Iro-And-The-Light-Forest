@@ -132,6 +132,7 @@
     <ClCompile Include="Gravity.cpp" />
     <ClCompile Include="JetPack.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MouseDirections.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Settings.cpp" />
@@ -145,6 +146,7 @@
     <ClInclude Include="entrance.h" />
     <ClInclude Include="Gravity.h" />
     <ClInclude Include="JetPack.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="MouseDirections.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Settings.h" />

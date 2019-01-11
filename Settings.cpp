@@ -12,3 +12,4 @@ int Settings::windowWidth = 1500;
 int Settings::windowHeight = 672;
 int Settings::FPS = 100;
 
+
