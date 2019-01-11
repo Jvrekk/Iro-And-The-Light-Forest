@@ -11,15 +11,12 @@
 #include "MouseDirections.h"
 #include "entrance.h"
 #include "Settings.h"
+#include "Animations.h"
 #include <vector>
-
 
 using namespace sf;
 using namespace std;
 using namespace Collision;
-
-
-
 
 int main() {
 
@@ -41,14 +38,25 @@ int main() {
 
     Texture bulletTexture;
 
-	if (bulletTexture.loadFromFile("images/bullet.png")) {
+	if (!bulletTexture.loadFromFile("images/bullet.png")) {
 		cout << "bullet.png load failed";
 	}
 
 	MouseDirections md;
-	Player player;
+	Texture tPlayer;
+
+	if (!tPlayer.loadFromFile("images/player.png"))
+	{
+		cout << "load player.png failed";
+		EXIT_FAILURE;
+	}
+	//sf::Texture* texture,sf::Vector2u imageCount, float switchTime) : animation(texture, imageCount, switchTime){
+	Player player(&tPlayer,sf::Vector2u(4,3), 0.3f);
+
 	Enemy enemy;
 
+	float deltaTime = 0.0;
+	sf::Clock clock;
 
 	Entrance entrance, entrance2;
 
@@ -58,7 +66,10 @@ int main() {
 	//Main Loop:
 	while (window.isOpen()) {
 
-		player.movePlayer(window);
+		//
+		deltaTime = clock.restart().asSeconds();
+		//
+	//	player.movePlayer(window);
 		enemy.moveEnemy();
 		
 		if (Mouse::isButtonPressed(Mouse::Left)) {
@@ -67,9 +78,6 @@ int main() {
 			if (counter >= 100)
 				counter = 0;
 		}
-		
-		
-				
 
 			//Event Loop:
 			Event Event;
@@ -86,7 +94,6 @@ int main() {
 			player.considerGravity();
 			enemy.considerGravity();
 			
-
 			entrance.draw(window);
 			entrance2.draw(window);
 
@@ -117,42 +124,20 @@ int main() {
 				player.die();
 			}
 
-			if (PixelPerfectTest(player.getSprite(), entrance.getGroundSprite())) {
-				player.collision();
-			}
-			if (PixelPerfectTest(player.getSprite(), entrance2.getGroundSprite())) {
-				player.collision();
-			}
-			if (PixelPerfectTest(player.getSprite(), entrance.getUpperGroundSprite())) {
-				player.collision();
-			}
-			if (PixelPerfectTest(player.getSprite(), entrance2.getUpperGroundSprite())) {
-				player.collision();
-			}
+			enemy.considerCollisions(enemy, entrance, entrance2);
 
-			if (PixelPerfectTest(enemy.getSprite(), entrance.getGroundSprite())) {
-				enemy.collision();
-			}	
-			if (PixelPerfectTest(enemy.getSprite(), entrance2.getGroundSprite())) {
-				enemy.collision();
-			}
-			if (PixelPerfectTest(enemy.getSprite(), entrance.getGroundSprite())) {
-				enemy.collision();
-			}
-			if (PixelPerfectTest(enemy.getSprite(), entrance2.getGroundSprite())) {
-				enemy.collision();
-			}
-
-
+			player.Update(deltaTime, window);
+			player.considerCollisions(player, entrance, entrance2);
 
 			player.drawPlayer(window);
 			enemy.drawEnemy(window);
 
+
 			for (int i = 0; i < magazin; i++) {
 				bulletArr[i].drawBullet(window);
 			}
-			
-		
+			//cout << "size "<<window.getSize().x << "     " << window.getSize().y << endl;
+			cout << "position "<<window.getPosition().x << "     " << window.getPosition().y << endl;
 			window.display();
 			window.clear();
 		}

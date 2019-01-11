@@ -5,10 +5,13 @@
 #include "Gravity.h"
 #include "Enemy.h"
 #include "Settings.h"
+#include "entrance.h"
+#include "Collision.h"
+
 
 using namespace sf;
 using namespace std;
-
+using namespace Collision;
 
 Enemy::Enemy() {
 	if (!tEnemy.loadFromFile("images/enemy.png"))
@@ -26,7 +29,7 @@ void Enemy::drawEnemy(RenderWindow &window) {
 }
 
 void Enemy::moveEnemy() {
-	sEnemy.move(-moveSpeed, 0);
+	sEnemy.move(-moveSpeed/2, 0);
 }
 
 
@@ -46,4 +49,23 @@ sf::Sprite Enemy::getSprite() {
 	
 	return this->sEnemy;
 }
+
+void Enemy::considerCollisions(Enemy& ene, Entrance& env, Entrance& env2)
+{
+	if (PixelPerfectTest(ene.getSprite(), env.getGroundSprite())) {
+		ene.collision();
+	}
+	if (PixelPerfectTest(ene.getSprite(), env2.getGroundSprite())) {
+		ene.collision();
+	}
+	if (PixelPerfectTest(ene.getSprite(), env.getUpperGroundSprite())) {
+		ene.collision();
+	}
+	if (PixelPerfectTest(ene.getSprite(), env2.getUpperGroundSprite())) {
+		ene.collision();
+	}
+}
+
+
+
 

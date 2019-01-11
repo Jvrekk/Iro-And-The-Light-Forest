@@ -36,9 +36,6 @@
     <ClCompile Include="Collision.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="Box.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
     <ClCompile Include="MouseDirections.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
@@ -48,9 +45,6 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>Resource Files\Player</Filter>
     </ClCompile>
-    <ClCompile Include="JetPack.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
     <ClCompile Include="entrance.cpp">
       <Filter>Resource Files\map</Filter>
     </ClCompile>
@@ -59,6 +53,15 @@
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Animations.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JetPack.cpp">
+      <Filter>Resource Files\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>Resource Files\map</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Animations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

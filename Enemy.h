@@ -7,6 +7,8 @@
 #include <SFML\Graphics.hpp>
 #include "Gravity.h"
 #include "JetPack.h"
+#include "Entrance.h"
+
 using namespace sf;
 using namespace std;
 
@@ -22,12 +24,12 @@ public:
 	void collision();
 	void die();
 	Sprite getSprite();
-
+	void considerCollisions(Enemy& e, Entrance& env, Entrance& env2);
 
 	int hp = 20;
 
 private:
-	float moveSpeed = 4;
+	float moveSpeed =7;
 	sf::Sprite sEnemy;
 	sf::Texture tEnemy;
 
