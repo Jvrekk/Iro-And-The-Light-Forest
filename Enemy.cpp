@@ -36,20 +36,29 @@ void Enemy::drawEnemy(RenderWindow &window) {
 void Enemy::moveEnemy(float deltaTime, sf::Sprite player) {
 
 	sf::Vector2f movement(0.0f, 0.0f);
+
 	float randomMove = moveSpeed * deltaTime * 100;
+
 	if (player.getPosition().y - this->sEnemy.getPosition().y >=20 ) {
-		if (player.getPosition().x>this->sEnemy.getPosition().x)
+		if (player.getPosition().x > this->sEnemy.getPosition().x) {
 			movement.x += moveSpeed * deltaTime * 100;
 			randomMove = moveSpeed * deltaTime * 100;
-		if (player.getPosition().x<this->sEnemy.getPosition().x)
+			row = 0;
+		}
+			
+		
+		if (player.getPosition().x < this->sEnemy.getPosition().x) {
 			movement.x -= moveSpeed * deltaTime * 100;
 			randomMove = moveSpeed * deltaTime * -100;
+			row = 1;
+		}
+		
+		
 	}	
 	else {
 		movement.x += randomMove;
 	}
 
-		row = 0;
 
 	animation.Update(row, deltaTime, faceRight);
 	sEnemy.setTextureRect(animation.uvRect);

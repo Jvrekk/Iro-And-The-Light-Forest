@@ -26,7 +26,6 @@ Player::Player()
 Player::Player(sf::Texture* texture,sf::Vector2u imageCount, float switchTime) : animation(texture, imageCount, switchTime){
 	
 	row = 0;
-	faceRight = true;
 	// sPlayer.setOrigin(sf::Vector2f(256.0f, 256.0f));
 	sPlayer.setPosition(sf::Vector2f(Settings::windowWidth / 2, Settings::windowHeight / 2));
 	sPlayer.setTexture(*texture);

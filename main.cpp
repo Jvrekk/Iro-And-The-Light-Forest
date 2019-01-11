@@ -62,7 +62,7 @@ int main() {
 		cout << "load enemy.png failed";
 		EXIT_FAILURE;
 	}
-	Enemy enemy(&tEnemy, sf::Vector2u(3, 1), 0.3f);;
+	Enemy enemy(&tEnemy, sf::Vector2u(4, 2), 0.3f);;
 
 	float deltaTime = 0.0;
 	sf::Clock clock;
