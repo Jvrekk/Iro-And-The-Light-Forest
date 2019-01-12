@@ -15,7 +15,7 @@ Bullet::Bullet(float x,float y, Vector2f target, Texture *tex, float direction) 
 
 	bTarget = target;
 
-	sBullet.setPosition(x,y);
+	sBullet.setPosition(x+20,y);
 	sBullet.setTexture(*tex);
 	sBullet.setRotation(direction);
 }

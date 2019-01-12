@@ -14,7 +14,7 @@ Menu::Menu()
 
 void Menu::drawMenu(RenderWindow & window)
 {
-	window.clear(Color(200, 140, 200));
+	window.clear(Color(33, 0, 7));
 
 	sf::Font font;
 	if (!font.loadFromFile("startPage.ttf"))
@@ -23,35 +23,50 @@ void Menu::drawMenu(RenderWindow & window)
 	}
 
 	sf::Text play;
+	sf::Text goForward;
 	sf::Text quit;
 
-	// select the font
-	play.setFont(font); // font is a sf::Font
-
-						// set the string to display
+	play.setFont(font);
+	play.setPosition(Settings::windowWidth / 2 - 160, Settings::windowHeight / 2 - 200);
 	play.setString("Play");
-	// set the character size
-	play.setCharacterSize(72); // in pixels, not points!
+	play.setCharacterSize(72);
+	play.setFillColor(sf::Color::White);
 
-							   // set the color
-	play.setFillColor(sf::Color::Black);
+	goForward.setFont(font);
+	goForward.setPosition(Settings::windowWidth / 2 - 185, Settings::windowHeight / 2 - 100);
+	goForward.setString("Press enter to continue...");
+	goForward.setCharacterSize(16);
+	goForward.setFillColor(sf::Color::White);
 
+
+	quit.setFont(font);
+	quit.setPosition(Settings::windowWidth / 2 - 160, Settings::windowHeight / 2 - 60);
+	quit.setString(" Quit - ESC");
+	quit.setCharacterSize(32);
+	quit.setFillColor(sf::Color::White);
 
 
 	if (Keyboard::isKeyPressed(Keyboard::Return)) {
 		this->menu = false;
 		this->play = true;
 	}
+	if (Keyboard::isKeyPressed(Keyboard::Escape)) {
+		this->menu = false;
+		this->play = false;
+		this->isRuning = false;
+	}
 
 	// set the text style
 	window.draw(play);
+	window.draw(goForward);
+	window.draw(quit);
 	window.display();
 }
 
 
 void Menu::drawStartingPage(RenderWindow & window)
 {
-	window.clear(Color(200, 140, 200));
+	window.clear(Color(33, 0, 7));
 
 	sf::Font font;
 	if (!font.loadFromFile("startPage.ttf"))
@@ -68,13 +83,13 @@ void Menu::drawStartingPage(RenderWindow & window)
 	welcome.setPosition(Settings::windowWidth / 2 - 520, Settings::windowHeight / 2 - 200);
 	welcome.setString("Iro In The Dark Chamber");
 	welcome.setCharacterSize(72);
-	welcome.setFillColor(sf::Color::Black);
+	welcome.setFillColor(sf::Color::White);
 
 	goForward.setFont(font);
 	goForward.setPosition(Settings::windowWidth / 2 - 320, Settings::windowHeight / 2 - 100);
 	goForward.setString("Press sprace to continue...");
 	goForward.setCharacterSize(32);
-	goForward.setFillColor(sf::Color::Black);
+	goForward.setFillColor(sf::Color::White);
 
 
 	if (Keyboard::isKeyPressed(Keyboard::Space)) {
