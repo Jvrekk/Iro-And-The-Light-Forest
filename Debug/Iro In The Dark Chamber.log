@@ -3,5 +3,6 @@ c:\users\jvrekk\source\repos\iro-and-the-light-forest\gravity.h(30): warning C43
 c:\users\jvrekk\source\repos\iro-and-the-light-forest\bullet.h(14): warning C4584: „Bullet”: klasa bazowa „MouseDirections” jest już klasą bazową „Player”
   c:\users\jvrekk\source\repos\iro-and-the-light-forest\mousedirections.h(24): note: zobacz deklarację „MouseDirections”
   c:\users\jvrekk\source\repos\iro-and-the-light-forest\player.h(17): note: zobacz deklarację „Player”
-c:\users\jvrekk\source\repos\iro-and-the-light-forest\main.cpp(54): warning C4101: "settings": lokalna zmienna, do której nie istnieje odwołanie
+c:\users\jvrekk\source\repos\iro-and-the-light-forest\main.cpp(30): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+c:\users\jvrekk\source\repos\iro-and-the-light-forest\main.cpp(55): warning C4101: "settings": lokalna zmienna, do której nie istnieje odwołanie
   Iro In The Dark Chamber.vcxproj -> C:\Users\Jvrekk\source\repos\Iro-And-The-Light-Forest\Debug\Iro In The Dark Chamber.exe

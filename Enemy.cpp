@@ -55,7 +55,7 @@ void Enemy::moveEnemy(float deltaTime, sf::Sprite player) {
 		
 		
 	}	
-	else {
+	else  {
 		movement.x += randomMove;
 	}
 
@@ -73,6 +73,9 @@ void Enemy::considerGravity() {
 
 void Enemy::collision() {
 	sEnemy.move(0, -moveSpeed);
+}
+void Enemy::collisionBox() {
+	this->randomMove = -this->randomMove;
 }
 
 void Enemy::die() {

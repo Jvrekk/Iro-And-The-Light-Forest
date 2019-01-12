@@ -22,11 +22,12 @@ float czas = 0;
 float switchT = 0.1f;
 float totalT = 0.2f;
 sf::Clock clock2;
-int enemyAmount = 10;
-int enemyCount = 10;
+int enemyAmount = 1;
+int enemyCount = 1;
+int enemyKill = 0;
 int main() {
 
-
+	srand(time(NULL));
 	//WINDOW SETTINGS
 	RenderWindow window;
 	Vector2i centerWindow((VideoMode::getDesktopMode().width / 2) - 755, (VideoMode::getDesktopMode().height / 2) - 390);
@@ -67,9 +68,13 @@ int main() {
 		cout << "load enemy.png failed";
 		EXIT_FAILURE;
 	}
+	Box box1,box2;
+	box1.setter(0, 500);
+	box2.setter(2112,500);
 	Enemy enemyArr[100];
 	for (int i = 0; i < enemyAmount; i++) {
 		enemyArr[i] = { &tEnemy, sf::Vector2u(4, 2), 0.3f, 100+i*80, -300 };
+		enemyArr[i].hp = 100;
 	}
 
 	float deltaTime = 0.0;
@@ -128,6 +133,8 @@ int main() {
 
 			entrance.draw(window);
 			entrance2.draw(window);
+			box1.drawBox(window);
+			box2.drawBox(window);
 
 			//KOLIZJE
 			for (int i = 0; i < magazin; i++) {
@@ -156,6 +163,12 @@ int main() {
 
 			player.drawPlayer(window);
 			for (int i = 0; i < enemyAmount; i++) {
+				if (PixelPerfectTest(box1.getSprite(), enemyArr[i].getSprite())) {
+					enemyArr[i].collisionBox();
+				}
+				if (PixelPerfectTest(box2.getSprite(), enemyArr[i].getSprite())) {
+					enemyArr[i].collisionBox();
+				}
 				if (PixelPerfectTest(player.getSprite(), enemyArr[i].getSprite())) {
 					int i = player.getHp();
 					i -= 2;
@@ -164,6 +177,7 @@ int main() {
 						player.die(window);
 					}
 				}
+
 				enemyArr[i].drawEnemy(window);
 				enemyArr[i].considerGravity();
 				enemyArr[i].considerCollisions(enemyArr[i], entrance, entrance2);
@@ -174,6 +188,7 @@ int main() {
 						enemyArr[i].hp -= 15;
 						if (enemyArr[i].hp <= 0) {
 							enemyArr[i].die();
+							enemyKill++;
 						}
 					}
 				}
@@ -183,7 +198,14 @@ int main() {
 			for (int i = 0; i < magazin; i++) {
 				bulletArr[i].drawBullet(window);
 			}
-
+			if (enemyKill == enemyAmount) {
+				enemyAmount++;
+				enemyKill = 0;
+				for (int i = 0; i < enemyAmount; i++) {
+					enemyArr[i] = { &tEnemy, sf::Vector2u(4, 2), 0.3f, (rand()%2000+0), -300 };
+					enemyArr[i].hp = 100;
+				}
+			}
 			//cout << "size "<<window.getSize().x << "     " << window.getSize().y << endl;
 			cout << "position " << window.getPosition().x << "     " << window.getPosition().y << endl;
 			window.display();

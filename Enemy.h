@@ -24,6 +24,7 @@ public:
 	
 	void considerGravity();
 	void collision();
+	void collisionBox();
 	void die();
 	Sprite getSprite();
 	void considerCollisions(Enemy& e, Entrance& env, Entrance& env2);
