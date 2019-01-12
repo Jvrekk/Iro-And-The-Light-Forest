@@ -13,11 +13,12 @@ using namespace sf;
 using namespace std;
 using namespace Collision;
 
-Enemy::Enemy(sf::Texture * texture, sf::Vector2u imageCount, float switchTime) : animation(texture, imageCount, switchTime) {
-
+Enemy::Enemy(sf::Texture * texture, sf::Vector2u imageCount, float switchTime,int x,int y) : animation(texture, imageCount, switchTime) {
+	srand(time(NULL));
 	row = 0;
 	faceRight = false;
-	sEnemy.setPosition(sf::Vector2f(Settings::windowWidth + 600, -300));
+	//sEnemy.setPosition(sf::Vector2f(Settings::windowWidth + (rand() % 600) + 0, -300));
+	sEnemy.setPosition(sf::Vector2f(x,y));
 	sEnemy.setTexture(*texture);
 }
 
@@ -37,19 +38,18 @@ void Enemy::moveEnemy(float deltaTime, sf::Sprite player) {
 
 	sf::Vector2f movement(0.0f, 0.0f);
 
-	float randomMove = moveSpeed * deltaTime * 100;
 
 	if (player.getPosition().y - this->sEnemy.getPosition().y >=20 ) {
 		if (player.getPosition().x > this->sEnemy.getPosition().x) {
 			movement.x += moveSpeed * deltaTime * 100;
-			randomMove = moveSpeed * deltaTime * 100;
+			this->randomMove = moveSpeed * deltaTime * 100;
 			row = 0;
 		}
 			
 		
 		if (player.getPosition().x < this->sEnemy.getPosition().x) {
 			movement.x -= moveSpeed * deltaTime * 100;
-			randomMove = moveSpeed * deltaTime * -100;
+			this->randomMove = moveSpeed * deltaTime * -100;
 			row = 1;
 		}
 		

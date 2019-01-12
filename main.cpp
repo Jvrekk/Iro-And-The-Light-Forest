@@ -18,7 +18,12 @@
 using namespace sf;
 using namespace std;
 using namespace Collision;
-
+float czas = 0;
+float switchT = 0.1f;
+float totalT = 0.2f;
+sf::Clock clock2;
+int enemyAmount = 10;
+int enemyCount = 10;
 int main() {
 
 
@@ -62,8 +67,10 @@ int main() {
 		cout << "load enemy.png failed";
 		EXIT_FAILURE;
 	}
-	
-	Enemy enemy(&tEnemy, sf::Vector2u(4, 2), 0.3f);
+	Enemy enemyArr[100];
+	for (int i = 0; i < enemyAmount; i++) {
+		enemyArr[i] = { &tEnemy, sf::Vector2u(4, 2), 0.3f, 100+i*80, -300 };
+	}
 
 	float deltaTime = 0.0;
 	sf::Clock clock;
@@ -86,16 +93,24 @@ int main() {
 		if (menu.play) {
 			//
 			deltaTime = clock.restart().asSeconds();
+			czas = clock2.getElapsedTime().asSeconds();
 			//
 			//	player.movePlayer(window);
+			totalT += deltaTime;
+			if (totalT >= switchT) {
+				totalT -= switchT;
+				if (Mouse::isButtonPressed(Mouse::Left)) {
 
-			if (Mouse::isButtonPressed(Mouse::Left)) {
-				bulletArr[counter].setter(player.getSprite().getPosition().x, player.getSprite().getPosition().y, md.mouseDirections(window, player.getSprite(),player.xmov), &bulletTexture, md.getRotation(window, player.getSprite(),player.xmov));
-				counter++;
-				if (counter >= 100)
-					counter = 0;
+					bulletArr[counter].setter(player.getSprite().getPosition().x, player.getSprite().getPosition().y, md.mouseDirections(window, player.getSprite(), player.xmov), &bulletTexture, md.getRotation(window, player.getSprite(), player.xmov));
+					counter++;
+
+
+					if (counter >= 100)
+						counter = 0;
+				}
 			}
-
+				
+	
 			//Event Loop:
 			Event Event;
 			while (window.pollEvent(Event)) {
@@ -109,7 +124,6 @@ int main() {
 			}
 
 			player.considerGravity();
-			enemy.considerGravity();
 		
 
 			entrance.draw(window);
@@ -129,34 +143,42 @@ int main() {
 				if (PixelPerfectTest(bulletArr[i].getSprite(), entrance2.getUpperGroundSprite())) {
 					bulletArr[i].collision();
 				}
-				if (PixelPerfectTest(bulletArr[i].getSprite(), enemy.getSprite())) {
-					bulletArr[i].collision();
-					enemy.hp -= 1;
-					if (enemy.hp == 0) {
-						enemy.die();
-					}
-				}
+
 			}
-			if (PixelPerfectTest(player.getSprite(), enemy.getSprite())) {
-				int i = player.getHp();
-				i-=2;
-				player.setHp(i);
-				if (player.getHp() < 0) {
-					player.die(window);
-				}
-			}
+
 	
 
-			enemy.considerCollisions(enemy, entrance, entrance2);
 	
 			player.Update(deltaTime, window);
-			enemy.moveEnemy(deltaTime,player.getSprite());
 
 
 			player.considerCollisions(player, entrance, entrance2);
 
 			player.drawPlayer(window);
-			enemy.drawEnemy(window);
+			for (int i = 0; i < enemyAmount; i++) {
+				if (PixelPerfectTest(player.getSprite(), enemyArr[i].getSprite())) {
+					int i = player.getHp();
+					i -= 2;
+					player.setHp(i);
+					if (player.getHp() < 0) {
+						player.die(window);
+					}
+				}
+				enemyArr[i].drawEnemy(window);
+				enemyArr[i].considerGravity();
+				enemyArr[i].considerCollisions(enemyArr[i], entrance, entrance2);
+				enemyArr[i].moveEnemy(deltaTime, player.getSprite());
+				for (int j = 0; j < magazin; j++) {
+					if (PixelPerfectTest(bulletArr[j].getSprite(), enemyArr[i].getSprite())) {
+						bulletArr[j].collision();
+						enemyArr[i].hp -= 15;
+						if (enemyArr[i].hp <= 0) {
+							enemyArr[i].die();
+						}
+					}
+				}
+
+			}
 
 			for (int i = 0; i < magazin; i++) {
 				bulletArr[i].drawBullet(window);

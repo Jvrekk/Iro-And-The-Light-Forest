@@ -16,8 +16,8 @@ using namespace std;
 class Enemy : public Gravity {
 public:
 
-	Enemy(sf::Texture* texture, sf::Vector2u imageCount, float switchTime);
-	Enemy();
+	Enemy(sf::Texture* texture, sf::Vector2u imageCount, float switchTime,int x,int y);
+	Enemy() {};
 
 	void drawEnemy(RenderWindow &window);
 	void moveEnemy(float deltaTime, sf::Sprite player);
@@ -30,6 +30,7 @@ public:
 
 	int hp = 100;
 	int hpMax = 100;
+	float randomMove = 0;
 
 private:
 	float moveSpeed = 7;
