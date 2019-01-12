@@ -1,13 +1,13 @@
-﻿Build started 1/12/2019 12:10:19 PM.
+﻿Build started 1/12/2019 12:29:41 PM.
      1>Project "C:\Users\user\source\repos\Iro-And-The-Light-Forest\Iro In The Dark Chamber.vcxproj" on node 2 (Build target(s)).
      1>InitializeBuildStatus:
-         Touching "Debug\Iro In T.A1E1ADAF.tlog\unsuccessfulbuild".
+         Creating "Debug\Iro In T.A1E1ADAF.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.13.26128\bin\HostX86\x86\CL.exe /c /I"C:\Users\user\source\repos\Iro-And-The-Light-Forest\SFML\include" /I"C:\Users\user\source\repos\Iro-And-The-Light-Forest\SFML\bin" /ZI /nologo /W3 /WX- /diagnostics:classic /sdl /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc141.pdb" /Gd /TP /analyze- /FC /errorReport:prompt main.cpp
          main.cpp
-     1>c:\users\user\source\repos\iro-and-the-light-forest\gravity.h(19): warning C4305: 'initializing': truncation from 'double' to 'float'
+     1>c:\users\user\source\repos\iro-and-the-light-forest\gravity.h(30): warning C4305: 'initializing': truncation from 'double' to 'float'
      1>c:\users\user\source\repos\iro-and-the-light-forest\bullet.h(14): warning C4584: 'Bullet': base-class 'MouseDirections' is already a base-class of 'Player'
-         c:\users\user\source\repos\iro-and-the-light-forest\mousedirections.h(16): note: see declaration of 'MouseDirections'
+         c:\users\user\source\repos\iro-and-the-light-forest\mousedirections.h(24): note: see declaration of 'MouseDirections'
          c:\users\user\source\repos\iro-and-the-light-forest\player.h(17): note: see declaration of 'Player'
      1>c:\users\user\source\repos\iro-and-the-light-forest\main.cpp(49): warning C4101: 'settings': unreferenced local variable
        Link:
@@ -34,11 +34,11 @@ Build succeeded.
 
        "C:\Users\user\source\repos\Iro-And-The-Light-Forest\Iro In The Dark Chamber.vcxproj" (Build target) (1) ->
        (ClCompile target) -> 
-         c:\users\user\source\repos\iro-and-the-light-forest\gravity.h(19): warning C4305: 'initializing': truncation from 'double' to 'float'
+         c:\users\user\source\repos\iro-and-the-light-forest\gravity.h(30): warning C4305: 'initializing': truncation from 'double' to 'float'
          c:\users\user\source\repos\iro-and-the-light-forest\bullet.h(14): warning C4584: 'Bullet': base-class 'MouseDirections' is already a base-class of 'Player'
          c:\users\user\source\repos\iro-and-the-light-forest\main.cpp(49): warning C4101: 'settings': unreferenced local variable
 
     3 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:01.37
+Time Elapsed 00:00:01.56

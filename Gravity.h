@@ -8,9 +8,20 @@
 #include "Settings.h"
 using namespace sf;
 using namespace std;
-
+/*!
+*! @brief Gravity klasa opisuj¹ca grawitacje w rozgrywce
+*
+*! @param Gravity::gSpeed podstawowa wielkoœæ prêdkoœci "przyci¹gania"
+*! @param Gravity::gSpeedMin minimalna prêdkoœæ "przyci¹gania"
+*! @param Gravity::gVelocity prêdkoœæ przyœpieszania
+*/
 class Gravity {
 public:
+	/*!
+	*! @brief considerGravity funkcja uwzglednia przekazany sprite do grawitacji
+	*
+	*! @param Sprite &Obj to element ktory ma opadac pod wplywem grawitacji
+	*/
 	void considerGravity(Sprite &Obj);
 
 private:

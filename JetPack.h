@@ -7,7 +7,13 @@
 #include <SFML\Graphics.hpp>
 using namespace sf;
 using namespace std;
-
+/*!
+*! @brief JetPack klasa opisuj¹ca opcje okna takie jak szerokosc wysokosc
+*! @param Settings::windowWidth	okresla szerokosc okna
+*! @param Settings::windowHeight okresla wysokosc okna
+*! @param Settings::FPS okresla ilosc klatek na sekunde
+*! @param Settings::Gravity okresla predosc grawitacji
+*/
 class JetPack {
 public:
 	JetPack();

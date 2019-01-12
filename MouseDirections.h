@@ -12,13 +12,31 @@
 
 
 using namespace sf;
-
+/*!
+*! @brief MouseDirections klasa umozliwia obliczanie kierunku lotu pociskow i kat myszki wzgledem postaci
+*
+*! @param MouseDirections::centrePlayerPos zmienna przechowujaca centralna pozycje player'a
+*! @param MouseDirections::currentPlayerPos zmienna przechowujaca obecna centralna pozycje player'a
+*! @param MouseDirections::mCurrentPos zmienna przechowujaca obecna centralna pozycje kursora
+*! @param MouseDirections::mTargetDir zmienna przechowujaca kierunek kursora
+*! @param MouseDirections::angle zmienna przechowujaca kat miedzy mysza a playerem
+*/
 class MouseDirections{
 
 public:
-
+	/*!
+	*! @brief mouseDirections funkcja oblicza kierunek lotu pociskow
+	*! @param widnow to wskaznik na zmienna typu RenderWindow
+	*! @param widnow to sprite playera
+	*! @return Vector2f zwraca Vektor2f ktory jest kierunkiem w ktorym beda leciec pociski
+	*/
 	Vector2f mouseDirections(RenderWindow &window, Sprite player,float xmove);
-
+	/*!
+	*! @brief getRotation funkcja oblicza kat pomiedzy playerem a mysza
+	*! @param widnow to wskaznik na zmienna typu RenderWindow
+	*! @param widnow to sprite playera
+	*! @return float zwraca kat miedzy mysza a postacia
+	*/
 	float getRotation(RenderWindow &window, Sprite player,float xmove);
 
 	
